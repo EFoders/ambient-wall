@@ -1,0 +1,10 @@
+# Normalise line endings in the repository (the working tree may use CRLF on Windows).
+* text=auto
+*.sh text eol=lf
+Dockerfile text eol=lf
+
+# Binary assets
+*.mp3 binary
+*.png binary
+*.jpg binary
+*.ico binary

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title type="text">Valley Alerts</title>
+  <link rel="self" href="https://alerts.example/feed.atom"/>
+  <updated>2026-10-10T13:05:00Z</updated>
+  <id>urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6</id>
+  <entry>
+    <title type="html">&lt;b&gt;Boil water&lt;/b&gt; advisory lifted for Petawawa &amp;amp; area</title>
+    <link rel="enclosure" href="https://alerts.example/a1.mp3"/>
+    <link rel="alternate" type="text/html" href="https://alerts.example/a1"/>
+    <id>urn:a1</id>
+    <published>2026-10-10T08:30:00-04:00</published>
+    <updated>2026-10-10T09:00:00-04:00</updated>
+    <summary type="html">&lt;p&gt;The Town of Petawawa lifted the advisory at 8 a.m.&lt;/p&gt;</summary>
+  </entry>
+  <entry>
+    <title type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Road <em>closures</em> on Hwy. 17</div></title>
+    <link href="https://alerts.example/a2"/>
+    <id>urn:a2</id>
+    <updated>2026-10-10T13:00:00.1234567Z</updated>
+    <content type="text">Eastbound lanes closed near Doran Road.</content>
+  </entry>
+  <entry>
+    <title>   </title>
+    <id>urn:untitled</id>
+    <updated>2026-10-10T12:00:00Z</updated>
+  </entry>
+  <entry>
+    <title>Library hours change for the long weekend</title>
+    <link rel="alternate" href="javascript:alert(1)"/>
+    <id>urn:a3</id>
+  </entry>
+  <entry>
+    <title>Council meeting moved to Tuesday</title>
+    <link rel="alternate" href="https://alerts.example/a4"/>
+    <id>urn:a4</id>
+    <published>2026-10-09</published>
+  </entry>
+</feed>

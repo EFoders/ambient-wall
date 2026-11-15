@@ -1,0 +1,14 @@
+# Live editing:  docker compose -f compose.yaml -f compose.dev.yaml up --build
+# frontend/ is served straight from the host (just reload the browser); backend/ambient/ and plugins/
+# changes restart uvicorn (--reload; polling, because bind-mount file events don't cross from
+# Windows/macOS hosts into the container).
+services:
+  wall:
+    volumes:
+      - ./frontend:/app/frontend:ro
+      - ./backend/ambient:/app/ambient:ro
+    environment:
+      AMBIENT_RELOAD: "1"
+      AMBIENT_LOG: INFO
+      WATCHFILES_FORCE_POLLING: "true"
+    restart: "no"

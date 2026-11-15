@@ -1,0 +1,30 @@
+{
+  "timestamp": 1791636900000,
+  "context": null,
+  "progress_ms": 12000,
+  "item": {
+    "album": {"album_type": null, "artists": [], "available_markets": [], "external_urls": {}, "href": null,
+              "id": null, "images": [], "name": "Basement Tapes 2009", "release_date": null,
+              "release_date_precision": null, "type": "album", "uri": null},
+    "artists": [{"external_urls": {}, "href": null, "id": null, "name": "The Garage Band", "type": "artist",
+                 "uri": "spotify:artist::"}],
+    "available_markets": [],
+    "disc_number": 0,
+    "duration_ms": 201000,
+    "explicit": false,
+    "external_ids": {},
+    "external_urls": {},
+    "href": null,
+    "id": null,
+    "is_local": true,
+    "name": "Song For The Lake",
+    "popularity": 0,
+    "preview_url": null,
+    "track_number": 0,
+    "type": "track",
+    "uri": "spotify:local:The+Garage+Band:Basement+Tapes+2009:Song+For+The+Lake:201"
+  },
+  "currently_playing_type": "track",
+  "actions": {"disallows": {"resuming": true}},
+  "is_playing": false
+}

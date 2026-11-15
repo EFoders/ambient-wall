@@ -1,0 +1,29 @@
+# Ambient Wall. Run from the repo root:  docker compose up -d --build   ->  http://<box>:8700/
+# Later services (ollama, voice) are added here, never installed on the host.
+name: ambient-wall
+
+services:
+  wall:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    image: ambient-wall:latest
+    ports:
+      - "8700:8700"               # host:container; change the left side to publish elsewhere
+    volumes:
+      - ./config:/config          # config.toml + secrets.toml (gitignored); else config.example.toml.
+                                  # Writable so the first-run setup wizard (/setup.html) can save them; on a
+                                  # Linux host the container user (uid 10001) needs write access to ./config
+                                  # once:  sudo chown -R 10001 config   (docs/SETUP.md)
+      - ./plugins:/app/plugins:ro # drop-in Python adapters / rules
+      - ./scripts:/app/scripts:ro # programs for type = "command" sources
+      - wall-data:/data           # SQLite history, caches, file sources
+    environment:
+      TZ: ${TZ:-UTC}              # log timestamps only; the wall itself uses [location] timezone
+      AMBIENT_LOG: INFO
+    cap_add:
+      - NET_RAW                   # ICMP ping for the heartbeat source
+    restart: unless-stopped
+
+volumes:
+  wall-data:

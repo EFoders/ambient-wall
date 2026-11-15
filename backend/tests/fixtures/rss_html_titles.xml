@@ -1,0 +1,45 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title><![CDATA[The <i>Valley</i> Gazette]]></title>
+    <link>https://gazette.example/</link>
+    <description>Local news</description>
+    <item>
+      <title><![CDATA[<b>Breaking:</b> Pembroke &amp; Petawawa&nbsp;merge fire services]]></title>
+      <link>https://gazette.example/fire</link>
+      <pubDate>Sat, 10 Oct 2026 08:15:00 EDT</pubDate>
+      <description><![CDATA[<img src="https://gazette.example/x.jpg"/><p>Councils voted&nbsp;7&ndash;2.</p><script>alert(1)</script>]]></description>
+      <media:thumbnail url="https://gazette.example/x.jpg"/>
+    </item>
+    <item>
+      <title>Caf&eacute; owner wins &ldquo;best&rdquo; award &mdash; again</title>
+      <link>https://gazette.example/cafe</link>
+      <dc:date>2026-10-10T11:45:00-04:00</dc:date>
+      <content:encoded><![CDATA[<p>Third year running.</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>&lt;em&gt;Escaped&lt;/em&gt; markup in a title, 5 &lt; 6</title>
+      <guid isPermaLink="true">https://gazette.example/escaped</guid>
+      <pubDate>Sat, 10 Oct 2026 14:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>No date on this one</title>
+      <link>https://gazette.example/undated</link>
+    </item>
+    <item>
+      <title>Garbage date on this one</title>
+      <link>https://gazette.example/garbage</link>
+      <pubDate>sometime last week</pubDate>
+    </item>
+    <item>
+      <title>European zone abbreviation</title>
+      <link>https://gazette.example/cest</link>
+      <pubDate>Sat, 10 Oct 2026 16:00:00 CEST</pubDate>
+    </item>
+    <item>
+      <description>An item with no title is skipped.</description>
+      <pubDate>Sat, 10 Oct 2026 12:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

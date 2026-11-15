@@ -1,0 +1,344 @@
+# Ambient Wall configuration (example). Runs as-is with zero secrets: every element is fed by the
+# offline `demo` source so all themes light up end to end.
+#
+# To make it yours: copy to config/config.toml (gitignored), then swap the demo sources for real ones
+# (commented examples below). Secrets go in config/secrets.toml (gitignored, flat table):
+#
+#     PUSH_TOKEN = "long-random-string"
+#     CALENDAR_ICS_URL = "https://calendar.google.com/calendar/ical/.../basic.ics"
+#
+# and are referenced here as "${NAME}" (secrets.toml first, then environment variables). A source
+# whose ${NAME} is not set is disabled with a warning; the rest of the wall keeps running.
+# Durations: "250ms", "30s", "5m", "1h", "2d" or a bare number of seconds.
+# In the container, relative paths mean /data (the wall-data volume).
+
+[server]
+host = "0.0.0.0"                  # in-container bind; change the published port in compose.yaml
+port = 8700
+# push_token = "${PUSH_TOKEN}"    # if set, POST /api/publish/<source> needs  Authorization: Bearer <token>
+                                  # (if set but the secret is missing, pushes are refused, not opened)
+# max_body_bytes = 65536          # push body limit
+# allowed_origins = ["null"]      # extra browser origins allowed on the WebSocket. The wall page served
+                                  # by this box (http://<box>:8700/) is always allowed. Add "null" to use
+                                  # the single-file build (frontend/dist/ambient-wall.html opened from
+                                  # disk, which sends Origin: null), or e.g. "http://192.168.1.20:8765"
+                                  # for a frontend served elsewhere. Any web page in a LAN browser could
+                                  # otherwise read the wall, so keep this list short.
+
+[location]                        # used for daylight (browser), weather, and local time everywhere
+name = "Ottawa"                   # your town (shown on the wall); lat / lon in decimal degrees
+lat = 45.4215
+lon = -75.6972
+timezone = "America/Toronto"      # IANA name, e.g. Europe/London, America/Los_Angeles
+
+[mode]                            # sent to the browser in the WebSocket "hello"
+work_start = "07:00"
+work_end = "17:00"
+work_days = [1, 2, 3, 4, 5]       # 0 = Sunday ... 6 = Saturday (JS getDay)
+transition_seconds = 8            # the "exhale" between work and ambient
+
+[display]
+theme = "cyberpunk"               # cyberpunk | nature | classical | boreal | campfire | academia |
+                                  # stainedglass | lofi | orbit | tower
+hour24 = true
+sound = false                     # ambient sound on at startup (change live: POST /api/command set_sound)
+volume = 0.4                      # 0..1, ambient mode
+sound_work = 0.0                  # 0..1 volume during work mode (0 = silent while working)
+boost = 0                         # projector boost for a dim projector: 0 off, 1 low, 2 medium, 3 high
+                                  # (lifts near-black tones, true black stays black; G on the wall cycles it)
+cat = false                       # a cat in every scene (K on the wall toggles; POST /api/command set_cat)
+cat_coat = "tabby"                # tabby ginger black grey tuxedo calico siamese white (Shift+K on the wall cycles)
+
+[history]
+keep = "14d"                      # SQLite history of changes in /data/history.db, pruned past this age
+
+
+# =====================================================================================================
+# Sources: one [[source]] table per instance. `name` becomes the signal namespace ("<name>.<key>"),
+# `type` picks the adapter. Common keys every source accepts:
+#   every = "30s"        how often to fetch (adapter default otherwise)
+#   ttl = "5m"           how long a value stays fresh (default: 3 x every)
+#   visibility = "wall"  "wall" (eligible to glow) or "ask" (pool only)
+#   enabled = true
+# =====================================================================================================
+
+# ---- demo: offline stand-in for every wall element (mirrors the frontend mocks) and every ask panel
+# (forecast, calendar, pulse, finance, news, warnings). One instance per element so the default [wall]
+# bindings below match. Each emits the same keys as the real adapter it stands in for. Delete these
+# once real sources are configured.
+[[source]]
+name = "calendar"
+type = "demo"
+# calendar = true                 # false = no events at all (next null, no today list)
+# calendar_lead_min = 47          # first event starts this many minutes after startup
+
+[[source]]
+name = "heartbeat"
+type = "demo"
+# homelab_down = false            # true = homelab has been down for 4 min
+
+[[source]]
+name = "finances"
+type = "demo"
+# finance = "calm"                # calm | drift | warning (also sets the detail.expenses categories)
+
+[[source]]
+name = "weather"
+type = "demo"
+weather = "overcast"              # overcast|clear|partly|fog|drizzle|rain|storm|snow|cold|cycle
+# cycle_every = "60s"             # with weather = "cycle": step through the presets
+# warnings = false                # true = one active weather warning (the warnings ask panel)
+
+[[source]]                        # headlines from two mock feeds; name starts with "news" so the
+name = "news"                     # news rule's default input glob (news*.items) picks it up
+type = "demo"
+# news = "normal"                 # normal | critical (adds a tornado-warning headline) | none (empty)
+
+[[source]]                        # project pulse for 3 mock repos, same keys as type = "github"
+name = "github"
+type = "demo"
+parts = ["pulse"]
+
+[[source]]                        # now playing: a 6-track mock playlist (progress advances, one 90 s
+name = "music"                    # pause), same `now` key as type = "spotify". Replace with a real
+type = "demo"                     # music source below.
+# music = "playlist"              # playlist | none (nothing playing)
+
+
+# ---- real sources (comment out the matching demo source above when you enable one) -----------------
+
+# Machine heartbeat: ICMP ping per host (the container has NET_RAW for this).
+# [[source]]
+# name = "heartbeat"
+# type = "ping"
+# every = "30s"
+# hosts = { homelab = "192.168.1.10", main-pc = "192.168.1.20" }
+# # tcp_port = 22                 # TCP-connect check instead of ICMP
+
+# Weather (default): Environment Canada citypage XML, free, no key. Site list:
+# https://dd.weather.gc.ca/today/citypage_weather/siteList.xml
+# [[source]]
+# name = "weather"
+# type = "envcanada"
+# site = "s0000430"               # Ottawa (Kanata - Orleans)
+# province = "ON"
+# every = "10m"
+
+# Weather (fallback): Open-Meteo, free, no key. Only the rounded coordinates leave the network.
+# [[source]]
+# name = "weather"
+# type = "open_meteo"
+# every = "10m"
+# # precip_horizon = "2h"
+
+# Calendar: Google Calendar "secret address in iCal format" (read-only, no OAuth).
+# [[source]]
+# name = "calendar"
+# type = "ical"
+# url = "${CALENDAR_ICS_URL}"
+# every = "5m"
+
+# Finances: a budget Google Sheet, read-only via a service account (layout: docs/SPEC.md 5.4).
+# Share the sheet (Viewer) with the service account's email; keep its JSON key in config/.
+# [[source]]
+# name = "finances"
+# type = "google_sheet_finances"
+# sheet_id = "${FINANCE_SHEET_ID}"   # the long id in the sheet's URL (keep it in secrets.toml)
+# credentials_file = "google-service-account.json"
+# every = "15m"
+# # sheet = "Summary"  header_row = 22  income_row = 23  expenses_row = 24  net_row = 25
+# # balance_row = 26   first_col = "D"  last_col = "O"   detail = false
+
+# Project pulse: GitHub activity on a list of repos (ask-only by default).
+# [[source]]
+# name = "github"
+# type = "github"
+# repos = ["owner/repo-one", "owner/repo-two"]
+# token = "${GITHUB_TOKEN}"       # optional: private repos, higher rate limit (read-only token)
+# dormant_days = 30
+# every = "30m"
+
+# News headlines: any RSS / Atom feed, pull only. Name each source "news..." so [rules.news] picks it
+# up (or set [rules.news] inputs). Comment out the demo "news" source above when you enable these.
+# [[source]]
+# name = "news-ottawa"
+# type = "rss"
+# url = "https://www.cbc.ca/webfeed/rss/rss-canada-ottawa"
+# label = "CBC Ottawa"            # display name (default: the feed's own title)
+# priority = 1                    # ranks above priority-0 feeds; >= [rules.news] critical_priority = critical
+# every = "15m"
+# # max_items = 20  summary_chars = 280  timeout = "15s"  max_bytes = 2000000
+#
+# [[source]]
+# name = "news-top"
+# type = "rss"
+# url = "https://www.cbc.ca/webfeed/rss/rss-topstories"
+# label = "CBC News"
+# every = "15m"
+
+# Any JSON API, no code: map dotted paths in the response to signal keys.
+# [[source]]
+# name = "solar"
+# type = "http_json"
+# url = "http://192.168.1.50/api/status"
+# every = "1m"
+# # headers = { Authorization = "Bearer ${SOLAR_TOKEN}" }
+# map = { "power.now" = "data.watts", "battery.pct" = "data.battery.percent" }
+
+# A JSON / CSV / TOML file anyone can edit (relative to /data in the container).
+# [[source]]
+# name = "notes"
+# type = "file"
+# path = "notes.json"
+
+# Any program printing JSON lines ({"key": ..., "value": ...}); runs in scripts/ (/app/scripts).
+# [[source]]
+# name = "backup"
+# type = "command"
+# command = ["python", "backup_status.py"]
+# every = "15m"
+# timeout = "30s"
+
+# ---- Now playing (pick ONE source named "music", or change [wall] now_playing) ---------------------
+#
+# Spotify, one-time setup (about 5 minutes, on a PC with a browser, NOT inside the container):
+#   1. https://developer.spotify.com/dashboard -> Create app. Any name; Redirect URI exactly
+#        http://127.0.0.1:8888/callback
+#      tick "Web API", save. Settings -> copy the Client ID and Client Secret. While the app is in
+#      Development mode, add your own Spotify account under User Management.
+#   2. From the repo root:   python scripts/spotify_auth.py --client-id <your client id>
+#      (it prompts for the secret; standard library only). Approve in the browser that opens.
+#   3. Paste the three SPOTIFY_* lines it prints into config/secrets.toml, enable the source below
+#      (and delete the demo "music" source above), then:  docker compose up -d
+# [[source]]
+# name = "music"
+# type = "spotify"
+# client_id = "${SPOTIFY_CLIENT_ID}"
+# client_secret = "${SPOTIFY_CLIENT_SECRET}"
+# refresh_token = "${SPOTIFY_REFRESH_TOKEN}"
+# # every = "5s"                  # poll while playing
+# # idle_every = "30s"            # poll while paused / idle
+
+# Last.fm: any player that scrobbles. API key from https://www.last.fm/api/account/create
+# (LASTFM_API_KEY in secrets.toml). No progress bar: Last.fm only knows "now playing".
+# [[source]]
+# name = "music"
+# type = "lastfm"
+# api_key = "${LASTFM_API_KEY}"
+# user = "your-lastfm-username"
+# # every = "15s"
+
+# Push: any player or script POSTs the track (see SOURCES.md), e.g. on Windows for ANY local player:
+#   uv run --with winsdk scripts/nowplaying_windows.py --wall http://<box>:8700
+# or by hand:
+#   curl -X POST http://<box>:8700/api/publish/music -H "Content-Type: application/json" \
+#        -d '{"key":"now","value":{"title":"Teardrop","artist":"Massive Attack","is_playing":true}}'
+# [[source]]
+# name = "music"
+# type = "push"
+# ttl = "1m"                      # a player that stops pushing disappears after this
+
+# Pushed in by phones, other boxes, scripts:  POST /api/publish/phone  {"key": "battery", "value": 81}
+# [[source]]
+# name = "phone"
+# type = "push"
+# ttl = "30m"
+# visibility = "ask"
+
+
+# =====================================================================================================
+# Rules: derived signals (source "rules"). Every table is optional. Keys every rule accepts:
+#   enabled = false          turn it off
+#   every = "30s"            how often it re-runs on its own (it also runs whenever an input changes)
+#   ttl = "90s"              how long its outputs stay fresh (default 3 x every)
+#   inputs = ["envcan.*"]    which changed signals re-run it (override when you rename a source)
+# =====================================================================================================
+
+[rules.heartbeat_down]
+after = "2m"                      # no successful ping for this long = down
+# hosts = ["homelab", "main-pc"]  # hosts that never report go down after `after` too
+
+[rules.finance_mood]
+drift_ratio = 0.85                # spent/income above this = drift
+warning_ratio = 1.0               # above this (or net < 0) = warning
+# pace_tolerance = 0.15
+
+[rules.weather_actionable]
+# observed = "ec"                 # a source of station observations (envcanada): rain it reports = "Raining now"
+precip_window = "60m"             # "Rain in 20 min" only within this window
+cold_c = -15                      # feels-like at or below = "dress for it"
+# hot_c = 30
+
+[rules.leave_early]
+# observed = "ec"                 # likewise
+lead = "60m"                      # event with a location starting within this...
+around = "30m"                    # ...and precipitation by its start + this = "Leave early"
+
+[rules.news]                      # rank, dedupe and flag headlines from every news*.items feed
+max_age = "12h"                   # older items are dropped
+keep = 5                          # length of rules.news.top
+local_terms = ["Ottawa", "Gatineau"]   # place names that rank a headline up (default: none)
+critical_priority = 10            # a source with priority >= this is always critical
+rotate_top = 3                    # the wall rotates through the top 3 headlines...
+rotate_s = 60                     # ...one every 60 s (a critical headline is pinned instead)
+# inputs = ["news*.items"]        # which feeds count
+# dedupe_threshold = 0.75         # title similarity at which two headlines are the same story
+# critical_max_age = "3h"         # an older item is never critical
+# critical_terms = ["warning", "evacuation", "evacuate", "emergency", "tornado", "lockdown",
+#                   "boil water", "state of emergency", "amber alert", "shelter in place", "hold and secure"]
+
+
+# =====================================================================================================
+# Wall bindings: which pool signals feed which wall element. These are the defaults; change them when
+# a source has a different name (e.g. weather = "home-wx" -> weather_condition = "home-wx.now.condition").
+# =====================================================================================================
+
+[wall]
+calendar = "calendar.next"
+heartbeat = "rules.heartbeat.*"
+finances = "finances.month"
+finance_mood = "rules.finances.mood"
+weather_temp = "weather.now.temp_c"
+weather_actionable = "rules.weather.actionable"
+weather_condition = "weather.now.condition"     # clear|cloudy|fog|rain|storm|snow
+weather_intensity = "weather.now.intensity"     # 0..1
+weather_wind = "weather.now.wind_kph"
+# weather_obs_condition = "ec.now.condition"    # station observations (an envcanada source named "ec", with
+# weather_obs_intensity = "ec.now.intensity"    #   ttl = "90m"): precipitation they report wins over the
+#                                               #   forecast model's "now", which can miss rain that is falling
+calendar_advice = "rules.calendar.advice"       # "Leave early" replaces the weather sliver; "" = off
+heartbeat_raw = "heartbeat.host.*"              # raw probes, for hosts the rule hasn't covered yet
+news = "rules.news.top"                         # ranked headlines from [rules.news]; "" = off
+now_playing = "music.now"                       # current track (spotify / lastfm / push / demo); "" = off
+now_playing_idle = "2m"                         # paused longer than this = hidden
+
+
+# =====================================================================================================
+# Ask panels: shown briefly on request (POST /api/show/<panel>, later voice). Defaults shown; an input
+# set to "" is off. Any panel also takes enabled = false and title = "...". Panels may read ask-only
+# signals (that is their purpose); the wall never does.
+# =====================================================================================================
+
+[ask.forecast]
+daily = "weather.forecast.daily"
+days = 7
+
+[ask.calendar]
+today = "calendar.today"
+
+[ask.pulse]
+pulse = "github.pulse"
+repos = "github.repo.*"          # fallback when pulse is missing
+dormant_days = 30                # only used when the source gives no alive/dormant flag
+
+[ask.finance]
+month = "finances.month"
+detail = "finances.detail.*"     # detail.expenses -> kind "expense", detail.income -> "income"
+mood = "rules.finances.mood"
+
+[ask.news]
+top = "rules.news.top"
+max_items = 5
+
+[ask.warnings]
+warnings = "weather.warnings"

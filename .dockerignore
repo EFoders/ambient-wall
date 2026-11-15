@@ -1,0 +1,14 @@
+# Build context is the repo root; only what the image needs goes in (allowlist).
+*
+!backend/pyproject.toml
+!backend/uv.lock
+!backend/ambient/
+!frontend/
+!config/config.example.toml
+
+**/__pycache__
+**/*.pyc
+frontend/shots/
+frontend/tools/
+frontend/tests/
+frontend/pytest.ini

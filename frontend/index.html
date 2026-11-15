@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ambient Wall</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; cursor: none; }
+  canvas#wall { display: block; background: #000; }
+  #hud {
+    position: fixed; left: 12px; bottom: 10px; white-space: pre;
+    font: 12px/1.5 ui-monospace, "DejaVu Sans Mono", monospace;
+    color: rgba(60, 140, 150, 0.7); pointer-events: none; display: none;
+  }
+  /* sound is on but the browser wants a gesture first (autoplay); core shows this until a key or click */
+  #hint {
+    position: fixed; right: 12px; bottom: 10px; white-space: pre;
+    font: 11px/1.4 ui-monospace, "DejaVu Sans Mono", monospace;
+    color: rgba(150, 112, 56, 0.55); pointer-events: none; display: none;
+  }
+  /* first run, wizard skipped: where the setup wizard is (core.js firstRun), faint, for a minute after connecting */
+  #setup-hint {
+    position: fixed; right: 12px; bottom: 28px; white-space: pre;
+    font: 11px/1.4 ui-monospace, "DejaVu Sans Mono", monospace;
+    color: rgba(150, 112, 56, 0.4); pointer-events: none; display: none;
+  }
+</style>
+</head>
+<body>
+<canvas id="wall"></canvas>
+<div id="hud"></div>
+<div id="hint"></div>
+<div id="setup-hint"></div>
+
+<script src="js/config.js"></script>
+<script src="js/util.js"></script>
+<script src="js/core.js"></script>
+<script src="js/overlay.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/cat.js"></script>
+<!-- Themes: order here = number keys 1-9; T cycles through all (tower = 10th, T or ?theme=tower) -->
+<script src="themes/cyberpunk.js"></script>
+<script src="themes/nature.js"></script>
+<script src="themes/classical.js"></script>
+<script src="themes/boreal.js"></script>
+<script src="themes/campfire.js"></script>
+<script src="themes/academia.js"></script>
+<script src="themes/stainedglass.js"></script>
+<script src="themes/lofi.js"></script>
+<script src="themes/orbit.js"></script>
+<script src="themes/tower.js"></script>
+<script>AW.boot();</script>
+</body>
+</html>

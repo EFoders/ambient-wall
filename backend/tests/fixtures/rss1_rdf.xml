@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE rdf:RDF PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel rdf:about="https://rdf.example/">
+    <title>RDF Times</title>
+    <link>https://rdf.example/</link>
+  </channel>
+  <item rdf:about="https://rdf.example/1">
+    <title>Montr&#233;al transit strike ends</title>
+    <link>https://rdf.example/1</link>
+    <dc:date>2026-10-10T07:00:00-04:00</dc:date>
+  </item>
+  <item rdf:about="https://rdf.example/2">
+    <title>Québec election results certified</title>
+    <link>https://rdf.example/2</link>
+    <dc:date>2026-10-10T09:00:00-04:00</dc:date>
+  </item>
+</rdf:RDF>

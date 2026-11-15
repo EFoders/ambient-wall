@@ -1,0 +1,215 @@
+{
+ "latitude": 45.90733,
+ "longitude": -77.28121,
+ "generationtime_ms": 3.394603729248047,
+ "utc_offset_seconds": -14400,
+ "timezone": "America/Toronto",
+ "timezone_abbreviation": "GMT-4",
+ "elevation": 139.0,
+ "current_units": {
+  "time": "unixtime",
+  "interval": "seconds",
+  "temperature_2m": "\u00b0C",
+  "apparent_temperature": "\u00b0C",
+  "weather_code": "wmo code",
+  "cloud_cover": "%",
+  "wind_speed_10m": "km/h",
+  "precipitation": "mm"
+ },
+ "current": {
+  "time": 1791603000,
+  "interval": 900,
+  "temperature_2m": 3.0,
+  "apparent_temperature": -0.4,
+  "weather_code": 0,
+  "cloud_cover": 0,
+  "wind_speed_10m": 8.0,
+  "precipitation": 0.0
+ },
+ "minutely_15_units": {
+  "time": "unixtime",
+  "precipitation": "mm",
+  "snowfall": "cm",
+  "weather_code": "wmo code"
+ },
+ "minutely_15": {
+  "time": [
+   1791602100,
+   1791603000,
+   1791603900,
+   1791604800,
+   1791605700,
+   1791606600,
+   1791607500,
+   1791608400,
+   1791609300,
+   1791610200,
+   1791611100,
+   1791612000,
+   1791612900
+  ],
+  "precipitation": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "snowfall": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "weather_code": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "hourly_units": {
+  "time": "unixtime",
+  "precipitation": "mm",
+  "weather_code": "wmo code",
+  "temperature_2m": "\u00b0C"
+ },
+ "hourly": {
+  "time": [
+   1791597600,
+   1791601200,
+   1791604800,
+   1791608400,
+   1791612000,
+   1791615600,
+   1791619200
+  ],
+  "precipitation": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "weather_code": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "temperature_2m": [
+   4.0,
+   3.2,
+   2.8,
+   2.5,
+   2.2,
+   1.7,
+   1.2
+  ]
+ },
+ "daily_units": {
+  "time": "unixtime",
+  "weather_code": "wmo code",
+  "temperature_2m_max": "\u00b0C",
+  "temperature_2m_min": "\u00b0C",
+  "precipitation_sum": "mm",
+  "precipitation_probability_max": "%",
+  "wind_speed_10m_max": "km/h"
+ },
+ "daily": {
+  "time": [
+   1791518400,
+   1791604800,
+   1791691200,
+   1791777600,
+   1791864000,
+   1791950400,
+   1792036800
+  ],
+  "weather_code": [
+   51,
+   0,
+   3,
+   3,
+   81,
+   3,
+   3
+  ],
+  "temperature_2m_max": [
+   12.2,
+   14.2,
+   21.0,
+   18.1,
+   14.8,
+   11.2,
+   13.1
+  ],
+  "temperature_2m_min": [
+   3.2,
+   1.2,
+   6.6,
+   11.6,
+   5.3,
+   3.3,
+   0.8
+  ],
+  "precipitation_sum": [
+   0.3,
+   0.0,
+   0.0,
+   0.0,
+   9.1,
+   0.0,
+   0.0
+  ],
+  "precipitation_probability_max": [
+   43,
+   2,
+   1,
+   75,
+   75,
+   7,
+   26
+  ],
+  "wind_speed_10m_max": [
+   22.3,
+   19.2,
+   20.6,
+   10.8,
+   19.1,
+   19.0,
+   7.6
+  ]
+ }
+}

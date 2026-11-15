@@ -1,0 +1,9 @@
+{
+  "timestamp": 1791636900000,
+  "context": null,
+  "progress_ms": 4000,
+  "item": null,
+  "currently_playing_type": "ad",
+  "actions": {"disallows": {"resuming": true, "skipping_next": true}},
+  "is_playing": true
+}

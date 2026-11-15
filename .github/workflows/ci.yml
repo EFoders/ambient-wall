@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: backend/uv.lock
+      - name: Install
+        run: uv sync --all-extras
+      - name: pytest
+        run: uv run pytest -q
+
+  frontend:
+    name: Frontend tests (Playwright + Edge)
+    runs-on: ubuntu-latest
+    # The suite renders every theme in many states and checks sound, overlay, cat and keys: about 15 minutes.
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: frontend/tests/conftest.py
+      - name: Microsoft Edge
+        # The tests launch the installed Edge (Playwright channel "msedge"). GitHub's Ubuntu images ship it;
+        # install it only if it is missing.
+        run: |
+          if [ -x /opt/microsoft/msedge/msedge ]; then
+            /opt/microsoft/msedge/msedge --version
+          else
+            uv run --no-project --with playwright playwright install --with-deps msedge
+          fi
+      - name: pytest
+        # One test needs a real backend on localhost:8700 and skips here.
+        run: >-
+          uv run --no-project --with pytest --with pytest-timeout --with playwright --with pillow --with numpy
+          --with aiohttp pytest tests -q

@@ -1,0 +1,8 @@
+layers/wind-strong/1.mp3         bosk1-217186.mp3                               2.0-  105.4s score  0.00  -24.4 LUFS  -26.7 dB RMS pk -9.0 gain +2.9 dB -> gain 0.851
+layers/wind-strong/2.mp3         kyles-454358.mp3                              54.0-  174.0s score  4.22  -24.4 LUFS  -26.9 dB RMS pk -8.2 gain +3.9 dB -> gain 0.851
+layers/wind-strong/3.mp3         tonmeister88-557380.mp3                        2.0-  107.9s score  0.00  -24.3 LUFS  -26.3 dB RMS pk -8.1 gain +14.0 dB -> gain 0.841
+layers/city-night/1.mp3          janbezouska-330427.mp3                        34.0-  154.0s score  1.08  -24.5 LUFS  -26.7 dB RMS pk -11.5 gain +20.1 dB -> gain 0.468
+layers/city-night/2.mp3          softwalls-385104.mp3                          20.0-  140.0s score  0.72  -24.4 LUFS  -24.1 dB RMS pk -6.5 gain +9.7 dB -> gain 0.462
+layers/city-night/3.mp3          yakobb1-495866.mp3                            34.0-  154.0s score  1.02  -24.4 LUFS  -26.8 dB RMS pk -10.1 gain -8.7 dB -> gain 0.462
+layers/magic/1.mp3               newlocknew-772279.mp3                          2.0-   70.9s score  0.00  -24.4 LUFS  -30.8 dB RMS pk -11.1 gain +6.3 dB -> gain 0.437
+layers/magic/2.mp3               snowfightstudios-670641.mp3                   10.0-  130.0s score  1.36  -24.4 LUFS  -26.2 dB RMS pk -12.1 gain -5.4 dB -> gain 0.437

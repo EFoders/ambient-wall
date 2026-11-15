@@ -1,0 +1,51 @@
+name: Demo (GitHub Pages)
+
+# Publishes the static demo: frontend/ on mock data, with demo.html as the entry page. Enable it once under
+# Settings -> Pages -> Source: "GitHub Actions". The demo is then at https://<owner>.github.io/<repo>/.
+on:
+  push:
+    branches: [main]
+    paths:
+      - frontend/**
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble the site
+        # Everything the page loads (js/, themes/, sounds/), none of the dev tooling.
+        run: |
+          mkdir _site
+          rsync -a \
+            --exclude 'tests/' --exclude 'tools/' --exclude 'shots/' --exclude 'dist/' \
+            --exclude '__pycache__/' --exclude 'pytest.ini' \
+            frontend/ _site/
+          cp frontend/demo.html _site/index.html
+          du -sh _site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

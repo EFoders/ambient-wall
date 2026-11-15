@@ -1,0 +1,2221 @@
+{
+ "version": 1,
+ "layers": {
+  "rain-light": [
+   {
+    "file": "layers/rain-light/1.mp3",
+    "seconds": 119.35,
+    "gain": 1.6982,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/jakobthiesen/sounds/100495/",
+    "license": "CC-BY 3.0",
+    "author": "jakobthiesen",
+    "title": "Light Rain in Forest.WAV",
+    "excerpt": [
+     2.0,
+     121.3
+    ],
+    "lufs": -27.9,
+    "rms": -33.2
+   },
+   {
+    "file": "layers/rain-light/2.mp3",
+    "seconds": 120.0,
+    "gain": 1.8408,
+    "weight": 0.5,
+    "source": "https://freesound.org/people/tim.kahn/sounds/169031/",
+    "license": "CC-BY 4.0",
+    "author": "tim.kahn",
+    "title": "light forest rain.wav",
+    "excerpt": [
+     164.0,
+     284.0
+    ],
+    "lufs": -29.2,
+    "rms": -34.5
+   },
+   {
+    "file": "layers/rain-light/3.mp3",
+    "seconds": 120.0,
+    "gain": 1.8408,
+    "weight": 0.5,
+    "source": "https://freesound.org/people/tim.kahn/sounds/169031/",
+    "license": "CC-BY 4.0",
+    "author": "tim.kahn",
+    "title": "light forest rain.wav",
+    "excerpt": [
+     304.0,
+     424.0
+    ],
+    "lufs": -29.7,
+    "rms": -35.0
+   }
+  ],
+  "rain-heavy": [
+   {
+    "file": "layers/rain-heavy/1.mp3",
+    "seconds": 120.0,
+    "gain": 1.5311,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/titi2/sounds/571245/",
+    "license": "CC0",
+    "author": "titi2",
+    "title": "heavy_rain_210511_0081.mp3",
+    "excerpt": [
+     72.0,
+     192.0
+    ],
+    "lufs": -24.1,
+    "rms": -29.3
+   }
+  ],
+  "rain-window": [
+   {
+    "file": "layers/rain-window/1.mp3",
+    "seconds": 120.0,
+    "gain": 0.6839,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/el_boss/sounds/563088/",
+    "license": "CC0",
+    "author": "el_boss",
+    "title": "Night Rain on an Indoor Skylight",
+    "excerpt": [
+     50.0,
+     170.0
+    ],
+    "lufs": -24.3,
+    "rms": -27.2
+   },
+   {
+    "file": "layers/rain-window/2.mp3",
+    "seconds": 120.0,
+    "gain": 0.6761,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/nicoproson/sounds/648529/",
+    "license": "CC0",
+    "author": "nicoproson",
+    "title": "RAIN on glass window.wav",
+    "excerpt": [
+     8.0,
+     128.0
+    ],
+    "lufs": -24.2,
+    "rms": -28.3
+   }
+  ],
+  "wind-gentle": [
+   {
+    "file": "layers/wind-gentle/1.mp3",
+    "seconds": 63.33,
+    "gain": 0.6026,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/cribbler/sounds/380379/",
+    "license": "CC0",
+    "author": "cribbler",
+    "title": "Soft Wind Ambience.wav",
+    "excerpt": [
+     2.0,
+     65.3
+    ],
+    "lufs": -24.3,
+    "rms": -27.4
+   }
+  ],
+  "wind-strong": [
+   {
+    "file": "layers/wind-strong/1.mp3",
+    "seconds": 103.39,
+    "gain": 0.8511,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/Bosk1/sounds/217186/",
+    "license": "CC-BY 4.0",
+    "author": "Bosk1",
+    "title": "Wind at door howling 4.wav",
+    "excerpt": [
+     2.0,
+     105.4
+    ],
+    "lufs": -24.4,
+    "rms": -26.7
+   },
+   {
+    "file": "layers/wind-strong/2.mp3",
+    "seconds": 120.0,
+    "gain": 0.8511,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/kyles/sounds/454358/",
+    "license": "CC0",
+    "author": "kyles",
+    "title": "wind heavy strong through big trees suburbs 2nd floor window winter no leaves powerful gusts far forest wide.flac",
+    "excerpt": [
+     54.0,
+     174.0
+    ],
+    "lufs": -24.4,
+    "rms": -26.9
+   },
+   {
+    "file": "layers/wind-strong/3.mp3",
+    "seconds": 105.88,
+    "gain": 0.8414,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/Tonmeister88/sounds/557380/",
+    "license": "CC0",
+    "author": "Tonmeister88",
+    "title": "AMB_Wind_Howling_empty Church close to window_48kHz.wav",
+    "excerpt": [
+     2.0,
+     107.9
+    ],
+    "lufs": -24.3,
+    "rms": -26.3
+   }
+  ],
+  "fire": [
+   {
+    "file": "layers/fire/1.mp3",
+    "seconds": 120.0,
+    "gain": 0.7762,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/Spandau/sounds/40699/",
+    "license": "CC0",
+    "author": "Spandau",
+    "title": "campfire.wav",
+    "excerpt": [
+     70.0,
+     190.0
+    ],
+    "lufs": -24.8,
+    "rms": -25.7
+   }
+  ],
+  "water": [
+   {
+    "file": "layers/water/1.mp3",
+    "seconds": 90.0,
+    "gain": 0.9226,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/jakobthiesen/sounds/101689/",
+    "license": "CC-BY 3.0",
+    "author": "jakobthiesen",
+    "title": "Water Lap Horseshoe Lake.WAV",
+    "excerpt": [
+     2.0,
+     92.0
+    ],
+    "lufs": -24.2,
+    "rms": -28.3
+   },
+   {
+    "file": "layers/water/2.mp3",
+    "seconds": 120.0,
+    "gain": 1.0,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/TRP/sounds/568819/",
+    "license": "CC0",
+    "author": "TRP",
+    "title": "200906 Water waves lapping, lake, gentle, close, PEC 9am.flac",
+    "excerpt": [
+     10.0,
+     130.0
+    ],
+    "lufs": -24.9,
+    "rms": -32.7
+   }
+  ],
+  "city-night": [
+   {
+    "file": "layers/city-night/1.mp3",
+    "seconds": 120.0,
+    "gain": 0.4677,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/janbezouska/sounds/330427/",
+    "license": "CC0",
+    "author": "janbezouska",
+    "title": "Downtown LA, Little Tokyo, late night semi distant traffic.wav",
+    "excerpt": [
+     34.0,
+     154.0
+    ],
+    "lufs": -24.5,
+    "rms": -26.7
+   },
+   {
+    "file": "layers/city-night/2.mp3",
+    "seconds": 120.0,
+    "gain": 0.4624,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/softwalls/sounds/385104/",
+    "license": "CC0",
+    "author": "softwalls",
+    "title": "XY_City hum_Night_River_ambience.wav",
+    "excerpt": [
+     20.0,
+     140.0
+    ],
+    "lufs": -24.4,
+    "rms": -24.1
+   },
+   {
+    "file": "layers/city-night/3.mp3",
+    "seconds": 120.0,
+    "gain": 0.4624,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/Yakobb1/sounds/495866/",
+    "license": "CC0",
+    "author": "Yakobb1",
+    "title": "City Ambience Distant Stereo.wav",
+    "excerpt": [
+     34.0,
+     154.0
+    ],
+    "lufs": -24.4,
+    "rms": -26.8
+   }
+  ],
+  "city-day": [
+   {
+    "file": "layers/city-day/1.mp3",
+    "seconds": 120.0,
+    "gain": 0.5433,
+    "weight": 0.5,
+    "source": "https://freesound.org/people/Artem_Zaitsev/sounds/835887/",
+    "license": "CC0",
+    "author": "Artem_Zaitsev",
+    "title": "Daytime City Ambience",
+    "excerpt": [
+     36.0,
+     156.0
+    ],
+    "lufs": -24.4,
+    "rms": -26.5
+   },
+   {
+    "file": "layers/city-day/2.mp3",
+    "seconds": 120.0,
+    "gain": 0.5433,
+    "weight": 0.5,
+    "source": "https://freesound.org/people/Artem_Zaitsev/sounds/835887/",
+    "license": "CC0",
+    "author": "Artem_Zaitsev",
+    "title": "Daytime City Ambience",
+    "excerpt": [
+     188.0,
+     308.0
+    ],
+    "lufs": -24.4,
+    "rms": -26.5
+   },
+   {
+    "file": "layers/city-day/3.mp3",
+    "seconds": 79.44,
+    "gain": 0.5433,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/florianreichelt/sounds/457555/",
+    "license": "CC0",
+    "author": "florianreichelt",
+    "title": "A huge city in the distant recorded from a Skyscraper in Dubai",
+    "excerpt": [
+     2.0,
+     81.4
+    ],
+    "lufs": -24.4,
+    "rms": -26.1
+   }
+  ],
+  "town": [
+   {
+    "file": "layers/town/1.mp3",
+    "seconds": 120.0,
+    "gain": 0.6237,
+    "weight": 0.5,
+    "source": "https://freesound.org/people/Metzik/sounds/371222/",
+    "license": "CC-BY 4.0",
+    "author": "Metzik",
+    "title": "Medieval market",
+    "excerpt": [
+     134.0,
+     254.0
+    ],
+    "lufs": -24.4,
+    "rms": -27.5
+   },
+   {
+    "file": "layers/town/2.mp3",
+    "seconds": 120.0,
+    "gain": 0.6237,
+    "weight": 0.5,
+    "source": "https://freesound.org/people/Metzik/sounds/371222/",
+    "license": "CC-BY 4.0",
+    "author": "Metzik",
+    "title": "Medieval market",
+    "excerpt": [
+     298.0,
+     418.0
+    ],
+    "lufs": -24.4,
+    "rms": -27.5
+   },
+   {
+    "file": "layers/town/3.mp3",
+    "seconds": 26.16,
+    "gain": 0.6026,
+    "weight": 0.25,
+    "source": "https://freesound.org/people/OGsoundFX/sounds/423119/",
+    "license": "CC-BY 4.0",
+    "author": "OGsoundFX",
+    "title": "Medieval City - SAMPLE.wav",
+    "excerpt": [
+     2.0,
+     28.2
+    ],
+    "lufs": -24.1,
+    "rms": -28.0
+   },
+   {
+    "file": "layers/town/4.mp3",
+    "seconds": 37.92,
+    "gain": 0.6237,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/ramonmineiro/sounds/578072/",
+    "license": "CC0",
+    "author": "ramonmineiro",
+    "title": "medieval_village_atmosphere.wav",
+    "excerpt": [
+     2.0,
+     39.9
+    ],
+    "lufs": -24.4,
+    "rms": -28.0
+   }
+  ],
+  "room": [
+   {
+    "file": "layers/room/1.mp3",
+    "seconds": 106.44,
+    "gain": 0.0944,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/kyles/sounds/635732/",
+    "license": "CC0",
+    "author": "kyles",
+    "title": "room tone quiet apartment kitchen night nice with distant city traffic and ambient hum and hiss.flac",
+    "excerpt": [
+     2.0,
+     108.4
+    ],
+    "lufs": -24.5,
+    "rms": -24.5
+   }
+  ],
+  "cathedral": [
+   {
+    "file": "layers/cathedral/1.mp3",
+    "seconds": 120.0,
+    "gain": 0.2018,
+    "weight": 0.5,
+    "source": "https://freesound.org/people/Zetheyo/sounds/475954/",
+    "license": "CC0",
+    "author": "Zetheyo",
+    "title": "AMB Dans une grande eglise.WAV",
+    "excerpt": [
+     2.0,
+     122.0
+    ],
+    "lufs": -24.3,
+    "rms": -26.8
+   },
+   {
+    "file": "layers/cathedral/2.mp3",
+    "seconds": 120.0,
+    "gain": 0.2042,
+    "weight": 0.5,
+    "source": "https://freesound.org/people/Zetheyo/sounds/475954/",
+    "license": "CC0",
+    "author": "Zetheyo",
+    "title": "AMB Dans une grande eglise.WAV",
+    "excerpt": [
+     162.0,
+     282.0
+    ],
+    "lufs": -24.4,
+    "rms": -27.2
+   }
+  ],
+  "space": [
+   {
+    "file": "layers/space/1.mp3",
+    "seconds": 120.0,
+    "gain": 0.3467,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/secondbody/sounds/614461/",
+    "license": "CC0",
+    "author": "secondbody",
+    "title": "17. flying spaceship interior (roomtone)",
+    "excerpt": [
+     6.0,
+     126.0
+    ],
+    "lufs": -24.4,
+    "rms": -25.1
+   },
+   {
+    "file": "layers/space/2.mp3",
+    "seconds": 51.83,
+    "gain": 0.3467,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/Suhuy/sounds/715175/",
+    "license": "CC0",
+    "author": "Suhuy",
+    "title": "Spaceship Interior Background Noise",
+    "excerpt": [
+     2.0,
+     53.8
+    ],
+    "lufs": -24.4,
+    "rms": -23.2
+   }
+  ],
+  "magic": [
+   {
+    "file": "layers/magic/1.mp3",
+    "seconds": 68.9,
+    "gain": 0.4365,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/newlocknew/sounds/772279/",
+    "license": "CC0",
+    "author": "newlocknew",
+    "title": "MUSCChim_Atonal Crystal Chime Texture 1_EM",
+    "excerpt": [
+     2.0,
+     70.9
+    ],
+    "lufs": -24.4,
+    "rms": -30.8
+   },
+   {
+    "file": "layers/magic/2.mp3",
+    "seconds": 120.0,
+    "gain": 0.4365,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/SnowFightStudios/sounds/670641/",
+    "license": "CC0",
+    "author": "SnowFightStudios",
+    "title": "Humming Magical Orb",
+    "excerpt": [
+     10.0,
+     130.0
+    ],
+    "lufs": -24.4,
+    "rms": -26.2
+   }
+  ],
+  "neon-buzz": [
+   {
+    "file": "layers/neon-buzz/1.mp3",
+    "seconds": 95.64,
+    "gain": 0.2344,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/kyles/sounds/453496/",
+    "license": "CC0",
+    "author": "kyles",
+    "title": "neon sign buzz hum stereo close lowcut to taste9.flac",
+    "excerpt": [
+     2.0,
+     97.6
+    ],
+    "lufs": -24.4,
+    "rms": -26.6
+   },
+   {
+    "file": "layers/neon-buzz/2.mp3",
+    "seconds": 62.32,
+    "gain": 0.2399,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/kyles/sounds/637729/",
+    "license": "CC0",
+    "author": "kyles",
+    "title": "neon sign buzz hum frizzy mono3.flac",
+    "excerpt": [
+     2.0,
+     64.3
+    ],
+    "lufs": -24.6,
+    "rms": -27.3
+   }
+  ],
+  "birds-forest": [
+   {
+    "file": "layers/birds-forest/1.mp3",
+    "seconds": 120.0,
+    "gain": 0.6095,
+    "weight": 0.5,
+    "source": "https://freesound.org/people/songbirder/sounds/689060/",
+    "license": "CC-BY 4.0",
+    "author": "songbirder",
+    "title": "Canada Goose Side Trail - Birdsong Soundscape",
+    "excerpt": [
+     520.0,
+     640.0
+    ],
+    "lufs": -24.3,
+    "rms": -27.0
+   },
+   {
+    "file": "layers/birds-forest/2.mp3",
+    "seconds": 120.0,
+    "gain": 0.6095,
+    "weight": 0.5,
+    "source": "https://freesound.org/people/songbirder/sounds/689060/",
+    "license": "CC-BY 4.0",
+    "author": "songbirder",
+    "title": "Canada Goose Side Trail - Birdsong Soundscape",
+    "excerpt": [
+     1594.0,
+     1714.0
+    ],
+    "lufs": -24.3,
+    "rms": -27.5
+   },
+   {
+    "file": "layers/birds-forest/3.mp3",
+    "seconds": 120.0,
+    "gain": 0.6166,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/TRP/sounds/567908/",
+    "license": "CC0",
+    "author": "TRP",
+    "title": "200712 Early Summer birds, forest ambience, Vireo Cardinal Sparrow Wren Grackle Robin Warbler Redstart Dove Insects, noisy water traffic, PEC 7am.flac",
+    "excerpt": [
+     262.0,
+     382.0
+    ],
+    "lufs": -24.4,
+    "rms": -31.8
+   }
+  ],
+  "birds-light": [
+   {
+    "file": "layers/birds-light/1.mp3",
+    "seconds": 120.0,
+    "gain": 0.335,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/Yuval/sounds/187588/",
+    "license": "CC0",
+    "author": "Yuval",
+    "title": "early city birds.wav",
+    "excerpt": [
+     2.0,
+     122.0
+    ],
+    "lufs": -24.2,
+    "rms": -30.7
+   }
+  ],
+  "crickets": [
+   {
+    "file": "layers/crickets/1.mp3",
+    "seconds": 120.0,
+    "gain": 0.5623,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/Clearwavsound/sounds/523439/",
+    "license": "CC-BY 3.0",
+    "author": "Clearwavsound",
+    "title": "Night time crickets call",
+    "excerpt": [
+     34.0,
+     154.0
+    ],
+    "lufs": -24.4,
+    "rms": -30.5
+   },
+   {
+    "file": "layers/crickets/2.mp3",
+    "seconds": 83.29,
+    "gain": 0.5623,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/rhapsodize/sounds/171823/",
+    "license": "CC0",
+    "author": "rhapsodize",
+    "title": "crickets_creek.wav",
+    "excerpt": [
+     2.0,
+     85.3
+    ],
+    "lufs": -24.4,
+    "rms": -33.0
+   },
+   {
+    "file": "layers/crickets/3.mp3",
+    "seconds": 120.0,
+    "gain": 0.5689,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/SoundPacks/sounds/388401/",
+    "license": "CC-BY 3.0",
+    "author": "SoundPacks",
+    "title": "Crickets in the Woods at Night 001",
+    "excerpt": [
+     474.0,
+     594.0
+    ],
+    "lufs": -24.5,
+    "rms": -30.7
+   }
+  ],
+  "cicadas": [
+   {
+    "file": "layers/cicadas/1.mp3",
+    "seconds": 120.0,
+    "gain": 0.537,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/Jedo/sounds/396810/",
+    "license": "CC0",
+    "author": "Jedo",
+    "title": "Cicada's orchestra",
+    "excerpt": [
+     38.0,
+     158.0
+    ],
+    "lufs": -24.2,
+    "rms": -30.5
+   },
+   {
+    "file": "layers/cicadas/2.mp3",
+    "seconds": 120.0,
+    "gain": 0.5433,
+    "weight": 0.5,
+    "source": "https://freesound.org/people/jenkmasler/sounds/483917/",
+    "license": "CC0",
+    "author": "jenkmasler",
+    "title": "athens cicadas",
+    "excerpt": [
+     38.0,
+     158.0
+    ],
+    "lufs": -24.3,
+    "rms": -29.7
+   },
+   {
+    "file": "layers/cicadas/3.mp3",
+    "seconds": 120.0,
+    "gain": 0.537,
+    "weight": 0.5,
+    "source": "https://freesound.org/people/jenkmasler/sounds/483917/",
+    "license": "CC0",
+    "author": "jenkmasler",
+    "title": "athens cicadas",
+    "excerpt": [
+     404.0,
+     524.0
+    ],
+    "lufs": -24.2,
+    "rms": -30.5
+   }
+  ],
+  "forest-rustle": [
+   {
+    "file": "layers/forest-rustle/1.mp3",
+    "seconds": 120.0,
+    "gain": 0.6383,
+    "weight": 1.0,
+    "source": "https://freesound.org/people/ecfike/sounds/183496/",
+    "license": "CC0",
+    "author": "ecfike",
+    "title": "Wind and Leaves.wav",
+    "excerpt": [
+     122.1,
+     242.1
+    ],
+    "lufs": -24.0,
+    "rms": -29.0
+   }
+  ]
+ },
+ "cues": {
+  "thunder-near": [
+   {
+    "file": "cues/thunder-near/1.mp3",
+    "seconds": 9.26,
+    "gain": 1.7179,
+    "source": "https://freesound.org/people/Fission9/sounds/476228/",
+    "license": "CC0",
+    "author": "Fission9",
+    "title": "Thunder Re-edit",
+    "excerpt": [
+     0.24,
+     9.5
+    ]
+   },
+   {
+    "file": "cues/thunder-near/2.mp3",
+    "seconds": 11.75,
+    "gain": 1.9953,
+    "source": "https://freesound.org/people/Fission9/sounds/505113/",
+    "license": "CC0",
+    "author": "Fission9",
+    "title": "Thunder, Close",
+    "excerpt": [
+     0.25,
+     12.0
+    ]
+   },
+   {
+    "file": "cues/thunder-near/3.mp3",
+    "seconds": 12.09,
+    "gain": 1.9953,
+    "source": "https://freesound.org/people/Fission9/sounds/534023/",
+    "license": "CC0",
+    "author": "Fission9",
+    "title": "Thunderclap",
+    "excerpt": [
+     0.32,
+     12.41
+    ]
+   }
+  ],
+  "thunder-far": [
+   {
+    "file": "cues/thunder-far/1.mp3",
+    "seconds": 8.43,
+    "gain": 0.7762,
+    "source": "https://freesound.org/people/Fission9/sounds/476228/",
+    "license": "CC0",
+    "author": "Fission9",
+    "title": "Thunder Re-edit",
+    "excerpt": [
+     21.34,
+     29.77
+    ]
+   },
+   {
+    "file": "cues/thunder-far/2.mp3",
+    "seconds": 31.62,
+    "gain": 0.9226,
+    "source": "https://freesound.org/people/Fission9/sounds/581122/",
+    "license": "CC0",
+    "author": "Fission9",
+    "title": "Distant Thunder 1",
+    "excerpt": [
+     1.18,
+     32.8
+    ]
+   },
+   {
+    "file": "cues/thunder-far/3.mp3",
+    "seconds": 19.98,
+    "gain": 1.0,
+    "source": "https://freesound.org/people/Fission9/sounds/581123/",
+    "license": "CC0",
+    "author": "Fission9",
+    "title": "Distant Thunder 2",
+    "excerpt": [
+     0.61,
+     20.59
+    ]
+   },
+   {
+    "file": "cues/thunder-far/4.mp3",
+    "seconds": 7.24,
+    "gain": 0.871,
+    "source": "https://freesound.org/people/Fission9/sounds/581124/",
+    "license": "CC0",
+    "author": "Fission9",
+    "title": "Distant Thunder 3",
+    "excerpt": [
+     0.45,
+     7.69
+    ]
+   },
+   {
+    "file": "cues/thunder-far/5.mp3",
+    "seconds": 18.24,
+    "gain": 0.7586,
+    "source": "https://freesound.org/people/Fission9/sounds/581125/",
+    "license": "CC0",
+    "author": "Fission9",
+    "title": "Distant Thunder 4",
+    "excerpt": [
+     1.28,
+     19.52
+    ]
+   },
+   {
+    "file": "cues/thunder-far/6.mp3",
+    "seconds": 18.02,
+    "gain": 0.6531,
+    "source": "https://freesound.org/people/Marth8880/sounds/199947/",
+    "license": "CC-BY 4.0",
+    "author": "Marth8880",
+    "title": "Thunder roll 02",
+    "excerpt": [
+     0.23,
+     18.25
+    ]
+   },
+   {
+    "file": "cues/thunder-far/7.mp3",
+    "seconds": 23.83,
+    "gain": 0.7586,
+    "source": "https://freesound.org/people/Marth8880/sounds/199948/",
+    "license": "CC-BY 4.0",
+    "author": "Marth8880",
+    "title": "Thunder roll 01",
+    "excerpt": [
+     0.69,
+     24.52
+    ]
+   },
+   {
+    "file": "cues/thunder-far/8.mp3",
+    "seconds": 8.94,
+    "gain": 0.7244,
+    "source": "https://freesound.org/people/Marth8880/sounds/199953/",
+    "license": "CC-BY 4.0",
+    "author": "Marth8880",
+    "title": "Thunder roll 06",
+    "excerpt": [
+     0.17,
+     9.11
+    ]
+   },
+   {
+    "file": "cues/thunder-far/9.mp3",
+    "seconds": 9.31,
+    "gain": 0.7161,
+    "source": "https://freesound.org/people/Marth8880/sounds/199956/",
+    "license": "CC-BY 4.0",
+    "author": "Marth8880",
+    "title": "Thunder roll 07",
+    "excerpt": [
+     0.29,
+     9.6
+    ]
+   },
+   {
+    "file": "cues/thunder-far/10.mp3",
+    "seconds": 13.25,
+    "gain": 0.9772,
+    "source": "https://freesound.org/people/Marth8880/sounds/199957/",
+    "license": "CC-BY 4.0",
+    "author": "Marth8880",
+    "title": "Thunder roll 12",
+    "excerpt": [
+     0.12,
+     13.37
+    ]
+   },
+   {
+    "file": "cues/thunder-far/11.mp3",
+    "seconds": 8.36,
+    "gain": 0.6839,
+    "source": "https://freesound.org/people/Marth8880/sounds/199960/",
+    "license": "CC-BY 4.0",
+    "author": "Marth8880",
+    "title": "Thunder roll 08",
+    "excerpt": [
+     0.16,
+     8.52
+    ]
+   },
+   {
+    "file": "cues/thunder-far/12.mp3",
+    "seconds": 18.11,
+    "gain": 0.8913,
+    "source": "https://freesound.org/people/mikala_oidua/sounds/347562/",
+    "license": "CC0",
+    "author": "mikala_oidua",
+    "title": "mikala_oidua - Distant Thunder Clap_Gentle",
+    "excerpt": [
+     0.37,
+     18.48
+    ]
+   },
+   {
+    "file": "cues/thunder-far/13.mp3",
+    "seconds": 17.61,
+    "gain": 0.6918,
+    "source": "https://freesound.org/people/TRP/sounds/717845/",
+    "license": "CC0",
+    "author": "TRP",
+    "title": "TRP - 230405 Thunder DRY rolling distant low rumbles (Toronto)",
+    "excerpt": [
+     0.89,
+     18.5
+    ]
+   },
+   {
+    "file": "cues/thunder-far/14.mp3",
+    "seconds": 17.6,
+    "gain": 0.9661,
+    "source": "https://freesound.org/people/TRP/sounds/717845/",
+    "license": "CC0",
+    "author": "TRP",
+    "title": "TRP - 230405 Thunder DRY rolling distant low rumbles (Toronto)",
+    "excerpt": [
+     43.7,
+     61.3
+    ]
+   },
+   {
+    "file": "cues/thunder-far/15.mp3",
+    "seconds": 17.4,
+    "gain": 0.7244,
+    "source": "https://freesound.org/people/TRP/sounds/717845/",
+    "license": "CC0",
+    "author": "TRP",
+    "title": "TRP - 230405 Thunder DRY rolling distant low rumbles (Toronto)",
+    "excerpt": [
+     130.1,
+     147.5
+    ]
+   },
+   {
+    "file": "cues/thunder-far/16.mp3",
+    "seconds": 20.3,
+    "gain": 0.861,
+    "source": "https://freesound.org/people/TRP/sounds/717845/",
+    "license": "CC0",
+    "author": "TRP",
+    "title": "TRP - 230405 Thunder DRY rolling distant low rumbles (Toronto)",
+    "excerpt": [
+     146.6,
+     166.9
+    ]
+   }
+  ],
+  "train-pass": [
+   {
+    "file": "cues/train-pass/1.mp3",
+    "seconds": 22.66,
+    "gain": 0.6839,
+    "source": "https://freesound.org/people/TheSoundcatcher/sounds/332065/",
+    "license": "CC-BY 4.0",
+    "author": "TheSoundcatcher",
+    "title": "Tram_Pass_By_Slow",
+    "excerpt": [
+     0.81,
+     23.47
+    ]
+   },
+   {
+    "file": "cues/train-pass/2.mp3",
+    "seconds": 15.95,
+    "gain": 0.6918,
+    "source": "https://freesound.org/people/TheSoundcatcher/sounds/332066/",
+    "license": "CC-BY 4.0",
+    "author": "TheSoundcatcher",
+    "title": "Tram_Pass_By_Fast",
+    "excerpt": [
+     1.2,
+     17.15
+    ]
+   }
+  ],
+  "hover-pass": [
+   {
+    "file": "cues/hover-pass/1.mp3",
+    "seconds": 8.05,
+    "gain": 0.4571,
+    "source": "https://freesound.org/people/InspectorJ/sounds/417044/",
+    "license": "CC-BY 4.0",
+    "author": "InspectorJ (Jonathan Shaw)",
+    "title": "Abstract Spaceship, Flyby, Descending, A",
+    "excerpt": [
+     0.74,
+     8.79
+    ]
+   },
+   {
+    "file": "cues/hover-pass/2.mp3",
+    "seconds": 8.97,
+    "gain": 0.4467,
+    "source": "https://freesound.org/people/InspectorJ/sounds/417045/",
+    "license": "CC-BY 4.0",
+    "author": "InspectorJ (Jonathan Shaw)",
+    "title": "Abstract Spaceship, Flyby, Ascending, A",
+    "excerpt": [
+     1.22,
+     10.19
+    ]
+   },
+   {
+    "file": "cues/hover-pass/3.mp3",
+    "seconds": 8.56,
+    "gain": 0.3199,
+    "source": "https://freesound.org/people/Nox_Sound/sounds/623013/",
+    "license": "CC0",
+    "author": "Nox_Sound",
+    "title": "Whoosh_Passby_Train_SciFi_Long_Stereo",
+    "excerpt": [
+     0.39,
+     8.95
+    ]
+   },
+   {
+    "file": "cues/hover-pass/4.mp3",
+    "seconds": 8.26,
+    "gain": 0.3715,
+    "source": "https://freesound.org/people/Nox_Sound/sounds/623014/",
+    "license": "CC0",
+    "author": "Nox_Sound",
+    "title": "Whoosh_Passby_Spaceship_SciFi_Long_Stereo",
+    "excerpt": [
+     0.9,
+     9.16
+    ]
+   },
+   {
+    "file": "cues/hover-pass/5.mp3",
+    "seconds": 7.76,
+    "gain": 0.309,
+    "source": "https://freesound.org/people/Nox_Sound/sounds/623015/",
+    "license": "CC0",
+    "author": "Nox_Sound",
+    "title": "Whoosh_Passby_Jet_Long_Stereo",
+    "excerpt": [
+     0.31,
+     8.07
+    ]
+   }
+  ],
+  "loon": [
+   {
+    "file": "cues/loon/1.mp3",
+    "seconds": 3.34,
+    "gain": 0.2213,
+    "kind": "wail",
+    "source": "https://freesound.org/people/nicStage/sounds/432603/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 3",
+    "excerpt": [
+     1.57,
+     4.91
+    ]
+   },
+   {
+    "file": "cues/loon/2.mp3",
+    "seconds": 3.73,
+    "gain": 0.2265,
+    "kind": "wail",
+    "source": "https://freesound.org/people/nicStage/sounds/432603/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 3",
+    "excerpt": [
+     13.51,
+     17.24
+    ]
+   },
+   {
+    "file": "cues/loon/3.mp3",
+    "seconds": 3.85,
+    "gain": 0.26,
+    "kind": "wail",
+    "source": "https://freesound.org/people/nicStage/sounds/432603/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 3",
+    "excerpt": [
+     18.21,
+     22.06
+    ]
+   },
+   {
+    "file": "cues/loon/4.mp3",
+    "seconds": 3.94,
+    "gain": 0.2541,
+    "kind": "unknown",
+    "source": "https://freesound.org/people/nicStage/sounds/432603/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 3",
+    "excerpt": [
+     23.92,
+     27.86
+    ]
+   },
+   {
+    "file": "cues/loon/5.mp3",
+    "seconds": 3.95,
+    "gain": 0.2512,
+    "kind": "wail",
+    "source": "https://freesound.org/people/nicStage/sounds/432603/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 3",
+    "excerpt": [
+     33.27,
+     37.22
+    ]
+   },
+   {
+    "file": "cues/loon/6.mp3",
+    "seconds": 8.15,
+    "gain": 0.3273,
+    "kind": "unknown",
+    "source": "https://freesound.org/people/nicStage/sounds/432603/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 3",
+    "excerpt": [
+     49.84,
+     57.99
+    ]
+   },
+   {
+    "file": "cues/loon/7.mp3",
+    "seconds": 3.38,
+    "gain": 0.263,
+    "kind": "unknown",
+    "source": "https://freesound.org/people/nicStage/sounds/432604/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 2",
+    "excerpt": [
+     0.16,
+     3.54
+    ]
+   },
+   {
+    "file": "cues/loon/8.mp3",
+    "seconds": 4.81,
+    "gain": 0.2239,
+    "kind": "unknown",
+    "source": "https://freesound.org/people/nicStage/sounds/432604/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 2",
+    "excerpt": [
+     8.84,
+     13.65
+    ]
+   },
+   {
+    "file": "cues/loon/9.mp3",
+    "seconds": 7.1,
+    "gain": 0.3126,
+    "kind": "unknown",
+    "source": "https://freesound.org/people/nicStage/sounds/432604/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 2",
+    "excerpt": [
+     50.58,
+     57.68
+    ]
+   },
+   {
+    "file": "cues/loon/10.mp3",
+    "seconds": 8.63,
+    "gain": 0.2786,
+    "kind": "unknown",
+    "source": "https://freesound.org/people/nicStage/sounds/432604/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 2",
+    "excerpt": [
+     78.93,
+     87.56
+    ]
+   },
+   {
+    "file": "cues/loon/11.mp3",
+    "seconds": 8.61,
+    "gain": 0.2917,
+    "kind": "tremolo",
+    "source": "https://freesound.org/people/nicStage/sounds/432605/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 1",
+    "excerpt": [
+     3.63,
+     12.24
+    ]
+   },
+   {
+    "file": "cues/loon/12.mp3",
+    "seconds": 7.59,
+    "gain": 0.2427,
+    "kind": "unknown",
+    "source": "https://freesound.org/people/nicStage/sounds/432605/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 1",
+    "excerpt": [
+     11.49,
+     19.08
+    ]
+   },
+   {
+    "file": "cues/loon/13.mp3",
+    "seconds": 7.83,
+    "gain": 0.4519,
+    "kind": "tremolo",
+    "source": "https://freesound.org/people/nicStage/sounds/432605/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 1",
+    "excerpt": [
+     27.48,
+     35.31
+    ]
+   },
+   {
+    "file": "cues/loon/14.mp3",
+    "seconds": 6.7,
+    "gain": 0.3467,
+    "kind": "unknown",
+    "source": "https://freesound.org/people/nicStage/sounds/432605/",
+    "license": "CC-BY 4.0",
+    "author": "nicStage",
+    "title": "Loon / Diver call 1",
+    "excerpt": [
+     47.9,
+     54.6
+    ]
+   },
+   {
+    "file": "cues/loon/15.mp3",
+    "seconds": 7.68,
+    "gain": 0.335,
+    "kind": "tremolo",
+    "source": "https://commons.wikimedia.org/wiki/File:Yellowstone_sound_library_-_Common_Loon_-_001.mp3",
+    "license": "Public domain (US NPS)",
+    "author": "NPS & MSU Acoustic Atlas / Jennifer Jerrett",
+    "title": "TREMOLO - Yellowstone sound library: Common loons on Yellowstone Lake (NPS)",
+    "excerpt": [
+     50.31,
+     57.99
+    ]
+   },
+   {
+    "file": "cues/loon/16.mp3",
+    "seconds": 6.31,
+    "gain": 0.3589,
+    "kind": "tremolo",
+    "source": "https://commons.wikimedia.org/wiki/File:Yellowstone_sound_library_-_Common_Loon_-_001.mp3",
+    "license": "Public domain (US NPS)",
+    "author": "NPS & MSU Acoustic Atlas / Jennifer Jerrett",
+    "title": "TREMOLO - Yellowstone sound library: Common loons on Yellowstone Lake (NPS)",
+    "excerpt": [
+     63.02,
+     69.33
+    ]
+   },
+   {
+    "file": "cues/loon/17.mp3",
+    "seconds": 5.01,
+    "gain": 0.3467,
+    "kind": "tremolo",
+    "source": "https://commons.wikimedia.org/wiki/File:Yellowstone_sound_library_-_Common_Loon_-_001.mp3",
+    "license": "Public domain (US NPS)",
+    "author": "NPS & MSU Acoustic Atlas / Jennifer Jerrett",
+    "title": "TREMOLO - Yellowstone sound library: Common loons on Yellowstone Lake (NPS)",
+    "excerpt": [
+     69.4,
+     74.41
+    ]
+   },
+   {
+    "file": "cues/loon/18.mp3",
+    "seconds": 8.57,
+    "gain": 0.335,
+    "kind": "tremolo",
+    "source": "https://commons.wikimedia.org/wiki/File:Yellowstone_sound_library_-_Common_Loon_-_001.mp3",
+    "license": "Public domain (US NPS)",
+    "author": "NPS & MSU Acoustic Atlas / Jennifer Jerrett",
+    "title": "TREMOLO - Yellowstone sound library: Common loons on Yellowstone Lake (NPS)",
+    "excerpt": [
+     93.93,
+     102.5
+    ]
+   },
+   {
+    "file": "cues/loon/19.mp3",
+    "seconds": 4.55,
+    "gain": 0.2917,
+    "kind": "tremolo",
+    "source": "https://commons.wikimedia.org/wiki/File:Yellowstone_sound_library_-_Common_Loon_-_001.mp3",
+    "license": "Public domain (US NPS)",
+    "author": "NPS & MSU Acoustic Atlas / Jennifer Jerrett",
+    "title": "TREMOLO - Yellowstone sound library: Common loons on Yellowstone Lake (NPS)",
+    "excerpt": [
+     109.41,
+     113.96
+    ]
+   }
+  ],
+  "owl": [
+   {
+    "file": "cues/owl/1.mp3",
+    "seconds": 3.17,
+    "gain": 0.2018,
+    "source": "https://commons.wikimedia.org/wiki/File:Bubo_virginianus_-_Great_Horned_Owl_XC450919.mp3",
+    "license": "CC BY-SA 4.0",
+    "author": "Michael & Katie LaTour",
+    "title": "Great Horned Owl (Bubo virginianus), XC450919",
+    "excerpt": [
+     2.2,
+     5.37
+    ]
+   },
+   {
+    "file": "cues/owl/2.mp3",
+    "seconds": 3.17,
+    "gain": 0.2018,
+    "source": "https://commons.wikimedia.org/wiki/File:Bubo_virginianus_-_Great_Horned_Owl_XC450919.mp3",
+    "license": "CC BY-SA 4.0",
+    "author": "Michael & Katie LaTour",
+    "title": "Great Horned Owl (Bubo virginianus), XC450919",
+    "excerpt": [
+     10.19,
+     13.36
+    ]
+   },
+   {
+    "file": "cues/owl/3.mp3",
+    "seconds": 2.76,
+    "gain": 0.1799,
+    "source": "https://freesound.org/people/Gerent/sounds/558396/",
+    "license": "CC0",
+    "author": "Gerent",
+    "title": "owl_hooting ... 068-074",
+    "excerpt": [
+     0.68,
+     3.44
+    ]
+   },
+   {
+    "file": "cues/owl/4.mp3",
+    "seconds": 3.38,
+    "gain": 0.1862,
+    "source": "https://freesound.org/people/Gerent/sounds/558397/",
+    "license": "CC0",
+    "author": "Gerent",
+    "title": "owl_hooting ... 037-044",
+    "excerpt": [
+     1.0,
+     4.38
+    ]
+   },
+   {
+    "file": "cues/owl/5.mp3",
+    "seconds": 3.66,
+    "gain": 0.1928,
+    "source": "https://freesound.org/people/Gerent/sounds/558398/",
+    "license": "CC0",
+    "author": "Gerent",
+    "title": "owl_hooting ... 007-015",
+    "excerpt": [
+     1.12,
+     4.78
+    ]
+   },
+   {
+    "file": "cues/owl/6.mp3",
+    "seconds": 5.75,
+    "gain": 0.5012,
+    "source": "https://commons.wikimedia.org/wiki/File:Megascops_asio_-_Eastern_Screech_Owl_-_XC75829.ogg",
+    "license": "CC BY-SA 3.0",
+    "author": "Jonathon Jongsma",
+    "title": "Eastern Screech Owl (Megascops asio), XC75829",
+    "excerpt": [
+     0.55,
+     6.3
+    ]
+   },
+   {
+    "file": "cues/owl/7.mp3",
+    "seconds": 4.79,
+    "gain": 0.6237,
+    "source": "https://commons.wikimedia.org/wiki/File:Megascops_asio_-_Eastern_Screech_Owl_-_XC75829.ogg",
+    "license": "CC BY-SA 3.0",
+    "author": "Jonathon Jongsma",
+    "title": "Eastern Screech Owl (Megascops asio), XC75829",
+    "excerpt": [
+     27.21,
+     32.0
+    ]
+   },
+   {
+    "file": "cues/owl/8.mp3",
+    "seconds": 1.65,
+    "gain": 0.2541,
+    "source": "https://commons.wikimedia.org/wiki/File:Strix_varia_-_Barred_Owl_XC457078.mp3",
+    "license": "CC BY-SA 4.0",
+    "author": "Rob Porter",
+    "title": "Barred Owl (Strix varia), XC457078",
+    "excerpt": [
+     1.85,
+     3.5
+    ]
+   }
+  ],
+  "fire-pop": [
+   {
+    "file": "cues/fire-pop/1.mp3",
+    "seconds": 5.03,
+    "gain": 1.9953,
+    "source": "https://freesound.org/people/aabbccddee123/sounds/468956/",
+    "license": "CC0",
+    "author": "aabbccddee123",
+    "title": "001_FuegoFogata-004",
+    "excerpt": [
+     0.09,
+     5.12
+    ]
+   },
+   {
+    "file": "cues/fire-pop/2.mp3",
+    "seconds": 3.51,
+    "gain": 1.9953,
+    "source": "https://freesound.org/people/aabbccddee123/sounds/468957/",
+    "license": "CC0",
+    "author": "aabbccddee123",
+    "title": "001_FuegoFogata-003",
+    "excerpt": [
+     0.06,
+     3.57
+    ]
+   },
+   {
+    "file": "cues/fire-pop/3.mp3",
+    "seconds": 0.31,
+    "gain": 0.7244,
+    "source": "https://freesound.org/people/aabbccddee123/sounds/468958/",
+    "license": "CC0",
+    "author": "aabbccddee123",
+    "title": "001_FuegoFogata-002",
+    "excerpt": [
+     0.03,
+     0.34
+    ]
+   },
+   {
+    "file": "cues/fire-pop/4.mp3",
+    "seconds": 0.61,
+    "gain": 1.0839,
+    "source": "https://freesound.org/people/aabbccddee123/sounds/468959/",
+    "license": "CC0",
+    "author": "aabbccddee123",
+    "title": "001_FuegoFogata-001",
+    "excerpt": [
+     0.0,
+     0.61
+    ]
+   },
+   {
+    "file": "cues/fire-pop/5.mp3",
+    "seconds": 2.38,
+    "gain": 0.7762,
+    "source": "https://freesound.org/people/aabbccddee123/sounds/468960/",
+    "license": "CC0",
+    "author": "aabbccddee123",
+    "title": "001_FuegoFogata-006",
+    "excerpt": [
+     0.13,
+     2.51
+    ]
+   },
+   {
+    "file": "cues/fire-pop/6.mp3",
+    "seconds": 3.69,
+    "gain": 1.0471,
+    "source": "https://freesound.org/people/aabbccddee123/sounds/468961/",
+    "license": "CC0",
+    "author": "aabbccddee123",
+    "title": "001_FuegoFogata-005",
+    "excerpt": [
+     0.09,
+     3.78
+    ]
+   },
+   {
+    "file": "cues/fire-pop/7.mp3",
+    "seconds": 1.44,
+    "gain": 1.0965,
+    "source": "https://freesound.org/people/IPaddeh/sounds/422849/",
+    "license": "CC0",
+    "author": "IPaddeh",
+    "title": "Fire_Crackle_03",
+    "excerpt": [
+     0.0,
+     1.44
+    ]
+   },
+   {
+    "file": "cues/fire-pop/8.mp3",
+    "seconds": 2.51,
+    "gain": 1.6982,
+    "source": "https://freesound.org/people/IPaddeh/sounds/422850/",
+    "license": "CC0",
+    "author": "IPaddeh",
+    "title": "Fire_Crackle_02",
+    "excerpt": [
+     0.0,
+     2.51
+    ]
+   },
+   {
+    "file": "cues/fire-pop/9.mp3",
+    "seconds": 1.04,
+    "gain": 1.9724,
+    "source": "https://freesound.org/people/IPaddeh/sounds/422851/",
+    "license": "CC0",
+    "author": "IPaddeh",
+    "title": "Fire_Crackle_01",
+    "excerpt": [
+     0.29,
+     1.33
+    ]
+   },
+   {
+    "file": "cues/fire-pop/10.mp3",
+    "seconds": 2.5,
+    "gain": 0.7674,
+    "source": "https://freesound.org/people/Vrymaa/sounds/734665/",
+    "license": "CC0",
+    "author": "Vrymaa",
+    "title": "Vrymaa - Candle & oil lamps - Lighting (wick crackle)",
+    "excerpt": [
+     28.72,
+     31.22
+    ]
+   },
+   {
+    "file": "cues/fire-pop/11.mp3",
+    "seconds": 2.5,
+    "gain": 1.1482,
+    "source": "https://freesound.org/people/Vrymaa/sounds/734665/",
+    "license": "CC0",
+    "author": "Vrymaa",
+    "title": "Vrymaa - Candle & oil lamps - Lighting (wick crackle)",
+    "excerpt": [
+     33.12,
+     35.62
+    ]
+   },
+   {
+    "file": "cues/fire-pop/12.mp3",
+    "seconds": 2.5,
+    "gain": 0.6607,
+    "source": "https://freesound.org/people/Vrymaa/sounds/734665/",
+    "license": "CC0",
+    "author": "Vrymaa",
+    "title": "Vrymaa - Candle & oil lamps - Lighting (wick crackle)",
+    "excerpt": [
+     39.38,
+     41.88
+    ]
+   },
+   {
+    "file": "cues/fire-pop/13.mp3",
+    "seconds": 2.5,
+    "gain": 1.8408,
+    "source": "https://freesound.org/people/Vrymaa/sounds/734665/",
+    "license": "CC0",
+    "author": "Vrymaa",
+    "title": "Vrymaa - Candle & oil lamps - Lighting (wick crackle)",
+    "excerpt": [
+     47.06,
+     49.56
+    ]
+   },
+   {
+    "file": "cues/fire-pop/14.mp3",
+    "seconds": 1.42,
+    "gain": 1.7579,
+    "source": "https://freesound.org/people/Vrymaa/sounds/734665/",
+    "license": "CC0",
+    "author": "Vrymaa",
+    "title": "Vrymaa - Candle & oil lamps - Lighting (wick crackle)",
+    "excerpt": [
+     51.58,
+     53.0
+    ]
+   }
+  ],
+  "drip": [
+   {
+    "file": "cues/drip/1.mp3",
+    "seconds": 1.5,
+    "gain": 0.2541,
+    "source": "https://freesound.org/people/Blankened/sounds/612133/",
+    "license": "CC0",
+    "author": "Blankened",
+    "title": "Blankened - WaterDropletEchoed",
+    "excerpt": [
+     0.08,
+     1.58
+    ]
+   },
+   {
+    "file": "cues/drip/2.mp3",
+    "seconds": 0.6,
+    "gain": 0.6383,
+    "source": "https://freesound.org/people/magnuswaker/sounds/524216/",
+    "license": "CC0",
+    "author": "magnuswaker",
+    "title": "Drip 2 (dry) [plippy]",
+    "excerpt": [
+     0.0,
+     0.6
+    ]
+   },
+   {
+    "file": "cues/drip/3.mp3",
+    "seconds": 0.99,
+    "gain": 0.4169,
+    "source": "https://freesound.org/people/magnuswaker/sounds/524217/",
+    "license": "CC0",
+    "author": "magnuswaker",
+    "title": "Water Drip 2 [reverb] [ploppy]",
+    "excerpt": [
+     0.01,
+     1.0
+    ]
+   },
+   {
+    "file": "cues/drip/4.mp3",
+    "seconds": 0.83,
+    "gain": 0.5248,
+    "source": "https://freesound.org/people/magnuswaker/sounds/524218/",
+    "license": "CC0",
+    "author": "magnuswaker",
+    "title": "Water Drip 1 (dry) [slappy]",
+    "excerpt": [
+     0.0,
+     0.83
+    ]
+   },
+   {
+    "file": "cues/drip/5.mp3",
+    "seconds": 0.52,
+    "gain": 0.5689,
+    "source": "https://freesound.org/people/magnuswaker/sounds/524219/",
+    "license": "CC0",
+    "author": "magnuswaker",
+    "title": "Drip3 (dry)",
+    "excerpt": [
+     0.0,
+     0.52
+    ]
+   },
+   {
+    "file": "cues/drip/6.mp3",
+    "seconds": 0.68,
+    "gain": 0.6166,
+    "source": "https://freesound.org/people/magnuswaker/sounds/524220/",
+    "license": "CC0",
+    "author": "magnuswaker",
+    "title": "Water Drip 3",
+    "excerpt": [
+     0.01,
+     0.69
+    ]
+   },
+   {
+    "file": "cues/drip/7.mp3",
+    "seconds": 3.53,
+    "gain": 0.5888,
+    "source": "https://freesound.org/people/magnuswaker/sounds/524221/",
+    "license": "CC0",
+    "author": "magnuswaker",
+    "title": "Water Drip 7 (reverb, dramatic)",
+    "excerpt": [
+     0.0,
+     3.53
+    ]
+   },
+   {
+    "file": "cues/drip/8.mp3",
+    "seconds": 0.32,
+    "gain": 1.135,
+    "source": "https://freesound.org/people/magnuswaker/sounds/524222/",
+    "license": "CC0",
+    "author": "magnuswaker",
+    "title": "Drip 5 [dry] [plip]",
+    "excerpt": [
+     0.0,
+     0.32
+    ]
+   },
+   {
+    "file": "cues/drip/9.mp3",
+    "seconds": 0.69,
+    "gain": 0.631,
+    "source": "https://freesound.org/people/magnuswaker/sounds/524223/",
+    "license": "CC0",
+    "author": "magnuswaker",
+    "title": "Water Drip 5",
+    "excerpt": [
+     0.01,
+     0.7
+    ]
+   },
+   {
+    "file": "cues/drip/10.mp3",
+    "seconds": 0.61,
+    "gain": 0.6918,
+    "source": "https://freesound.org/people/magnuswaker/sounds/524224/",
+    "license": "CC0",
+    "author": "magnuswaker",
+    "title": "Drip 4",
+    "excerpt": [
+     0.0,
+     0.61
+    ]
+   },
+   {
+    "file": "cues/drip/11.mp3",
+    "seconds": 0.24,
+    "gain": 0.6457,
+    "source": "https://freesound.org/people/SignatureSoundsOrg/sounds/873023/",
+    "license": "CC0",
+    "author": "SignatureSoundsOrg",
+    "title": "Water_Drip_UI-01",
+    "excerpt": [
+     0.0,
+     0.24
+    ]
+   },
+   {
+    "file": "cues/drip/12.mp3",
+    "seconds": 0.24,
+    "gain": 0.5433,
+    "source": "https://freesound.org/people/SignatureSoundsOrg/sounds/873024/",
+    "license": "CC0",
+    "author": "SignatureSoundsOrg",
+    "title": "Water_Drip_UI-02",
+    "excerpt": [
+     0.0,
+     0.24
+    ]
+   },
+   {
+    "file": "cues/drip/13.mp3",
+    "seconds": 0.22,
+    "gain": 0.6607,
+    "source": "https://freesound.org/people/SignatureSoundsOrg/sounds/873025/",
+    "license": "CC0",
+    "author": "SignatureSoundsOrg",
+    "title": "Water_Drip_UI-03",
+    "excerpt": [
+     0.0,
+     0.22
+    ]
+   },
+   {
+    "file": "cues/drip/14.mp3",
+    "seconds": 0.25,
+    "gain": 0.631,
+    "source": "https://freesound.org/people/SignatureSoundsOrg/sounds/873026/",
+    "license": "CC0",
+    "author": "SignatureSoundsOrg",
+    "title": "Water_Drip_UI-04",
+    "excerpt": [
+     0.0,
+     0.25
+    ]
+   },
+   {
+    "file": "cues/drip/15.mp3",
+    "seconds": 0.31,
+    "gain": 0.5559,
+    "source": "https://freesound.org/people/SignatureSoundsOrg/sounds/873027/",
+    "license": "CC0",
+    "author": "SignatureSoundsOrg",
+    "title": "Water_Drip_UI-05",
+    "excerpt": [
+     0.0,
+     0.31
+    ]
+   }
+  ],
+  "chime": [
+   {
+    "file": "cues/chime/1.mp3",
+    "seconds": 3.05,
+    "gain": 0.302,
+    "source": "https://freesound.org/people/Anthousai/sounds/398492/",
+    "license": "CC0",
+    "author": "Anthousai",
+    "title": "wind chimes - single 03",
+    "excerpt": [
+     0.0,
+     3.05
+    ]
+   },
+   {
+    "file": "cues/chime/2.mp3",
+    "seconds": 2.98,
+    "gain": 0.5623,
+    "source": "https://freesound.org/people/Anthousai/sounds/398493/",
+    "license": "CC0",
+    "author": "Anthousai",
+    "title": "wind chimes - single 02",
+    "excerpt": [
+     0.0,
+     2.98
+    ]
+   },
+   {
+    "file": "cues/chime/3.mp3",
+    "seconds": 4.7,
+    "gain": 0.6457,
+    "source": "https://freesound.org/people/Anthousai/sounds/398494/",
+    "license": "CC0",
+    "author": "Anthousai",
+    "title": "wind chimes - single 01",
+    "excerpt": [
+     0.0,
+     4.7
+    ]
+   },
+   {
+    "file": "cues/chime/4.mp3",
+    "seconds": 3.7,
+    "gain": 0.3981,
+    "source": "https://freesound.org/people/Anthousai/sounds/398496/",
+    "license": "CC0",
+    "author": "Anthousai",
+    "title": "wind chimes - single 04",
+    "excerpt": [
+     0.0,
+     3.7
+    ]
+   },
+   {
+    "file": "cues/chime/5.mp3",
+    "seconds": 8.39,
+    "gain": 0.3199,
+    "source": "https://freesound.org/people/steffcaffrey/sounds/449946/",
+    "license": "CC0",
+    "author": "steffcaffrey",
+    "title": "Single Chime",
+    "excerpt": [
+     0.0,
+     8.39
+    ]
+   },
+   {
+    "file": "cues/chime/6.mp3",
+    "seconds": 3.86,
+    "gain": 0.1718,
+    "source": "https://freesound.org/people/steffcaffrey/sounds/449947/",
+    "license": "CC0",
+    "author": "steffcaffrey",
+    "title": "Single Chime 2",
+    "excerpt": [
+     0.0,
+     3.86
+    ]
+   },
+   {
+    "file": "cues/chime/7.mp3",
+    "seconds": 1.41,
+    "gain": 0.2483,
+    "source": "https://freesound.org/people/steffcaffrey/sounds/452371/",
+    "license": "CC0",
+    "author": "steffcaffrey",
+    "title": "Small Bell",
+    "excerpt": [
+     0.0,
+     1.41
+    ]
+   },
+   {
+    "file": "cues/chime/8.mp3",
+    "seconds": 1.3,
+    "gain": 0.1884,
+    "source": "https://freesound.org/people/steffcaffrey/sounds/452379/",
+    "license": "CC0",
+    "author": "steffcaffrey",
+    "title": "Small Bell #2",
+    "excerpt": [
+     0.0,
+     1.3
+    ]
+   }
+  ],
+  "bell-strike": [
+   {
+    "file": "cues/bell-strike/1.mp3",
+    "seconds": 11.92,
+    "gain": 0.1641,
+    "count": 0,
+    "kind": "peal",
+    "source": "https://freesound.org/people/NachtmahrTV/sounds/556702/",
+    "license": "CC0",
+    "author": "NachtmahrTV",
+    "title": "Church Bell 1",
+    "excerpt": [
+     0.68,
+     12.6
+    ]
+   },
+   {
+    "file": "cues/bell-strike/2.mp3",
+    "seconds": 2.89,
+    "gain": 0.1059,
+    "count": 1,
+    "kind": "strike",
+    "source": "https://freesound.org/people/NachtmahrTV/sounds/556703/",
+    "license": "CC0",
+    "author": "NachtmahrTV",
+    "title": "Church Bell 2",
+    "excerpt": [
+     0.41,
+     3.3
+    ]
+   },
+   {
+    "file": "cues/bell-strike/3.mp3",
+    "seconds": 3.67,
+    "gain": 0.1109,
+    "count": 1,
+    "kind": "strike",
+    "source": "https://freesound.org/people/NachtmahrTV/sounds/556703/",
+    "license": "CC0",
+    "author": "NachtmahrTV",
+    "title": "Church Bell 2",
+    "excerpt": [
+     3.29,
+     6.96
+    ]
+   },
+   {
+    "file": "cues/bell-strike/4.mp3",
+    "seconds": 4.79,
+    "gain": 0.1365,
+    "count": 1,
+    "kind": "strike",
+    "source": "https://freesound.org/people/NachtmahrTV/sounds/556703/",
+    "license": "CC0",
+    "author": "NachtmahrTV",
+    "title": "Church Bell 2",
+    "excerpt": [
+     6.95,
+     11.74
+    ]
+   },
+   {
+    "file": "cues/bell-strike/5.mp3",
+    "seconds": 3.61,
+    "gain": 0.1567,
+    "count": 1,
+    "kind": "strike",
+    "source": "https://freesound.org/people/NachtmahrTV/sounds/556703/",
+    "license": "CC0",
+    "author": "NachtmahrTV",
+    "title": "Church Bell 2",
+    "excerpt": [
+     11.73,
+     15.34
+    ]
+   },
+   {
+    "file": "cues/bell-strike/6.mp3",
+    "seconds": 12.0,
+    "gain": 0.1365,
+    "count": 0,
+    "kind": "peal",
+    "source": "https://freesound.org/people/NachtmahrTV/sounds/556704/",
+    "license": "CC0",
+    "author": "NachtmahrTV",
+    "title": "Church Bell 3",
+    "excerpt": [
+     0.8,
+     12.8
+    ]
+   }
+  ],
+  "bell-small": [
+   {
+    "file": "cues/bell-small/1.mp3",
+    "seconds": 14.28,
+    "gain": 0.2163,
+    "count": 6,
+    "kind": "strikes",
+    "source": "https://freesound.org/people/AGC66/sounds/394657/",
+    "license": "CC0",
+    "author": "AGC66",
+    "title": "AGC66 - Moureze church tower clock, six strikes",
+    "excerpt": [
+     0.0,
+     14.28
+    ]
+   },
+   {
+    "file": "cues/bell-small/2.mp3",
+    "seconds": 2.51,
+    "gain": 0.2188,
+    "count": 1,
+    "kind": "strike",
+    "source": "https://freesound.org/people/AGC66/sounds/394657/",
+    "license": "CC0",
+    "author": "AGC66",
+    "title": "AGC66 - Moureze church tower clock, six strikes",
+    "excerpt": [
+     1.11,
+     3.62
+    ]
+   },
+   {
+    "file": "cues/bell-small/3.mp3",
+    "seconds": 1.99,
+    "gain": 0.2291,
+    "count": 1,
+    "kind": "strike",
+    "source": "https://freesound.org/people/AGC66/sounds/394657/",
+    "license": "CC0",
+    "author": "AGC66",
+    "title": "AGC66 - Moureze church tower clock, six strikes",
+    "excerpt": [
+     5.86,
+     7.85
+    ]
+   },
+   {
+    "file": "cues/bell-small/4.mp3",
+    "seconds": 2.64,
+    "gain": 0.1928,
+    "count": 1,
+    "kind": "strike",
+    "source": "https://freesound.org/people/AGC66/sounds/394657/",
+    "license": "CC0",
+    "author": "AGC66",
+    "title": "AGC66 - Moureze church tower clock, six strikes",
+    "excerpt": [
+     11.75,
+     14.39
+    ]
+   },
+   {
+    "file": "cues/bell-small/5.mp3",
+    "seconds": 1.75,
+    "gain": 0.2291,
+    "count": 1,
+    "kind": "strike",
+    "source": "https://freesound.org/people/Refrain/sounds/266499/",
+    "license": "CC0",
+    "author": "Refrain",
+    "title": "Refrain - Church bell in Belmonte, Portugal",
+    "excerpt": [
+     0.25,
+     2.0
+    ]
+   },
+   {
+    "file": "cues/bell-small/6.mp3",
+    "seconds": 10.71,
+    "gain": 0.166,
+    "count": 1,
+    "kind": "strike",
+    "source": "https://freesound.org/people/Refrain/sounds/266499/",
+    "license": "CC0",
+    "author": "Refrain",
+    "title": "Refrain - Church bell in Belmonte, Portugal",
+    "excerpt": [
+     4.05,
+     14.76
+    ]
+   }
+  ],
+  "page-turn": [
+   {
+    "file": "cues/page-turn/1.mp3",
+    "seconds": 0.52,
+    "gain": 1.2882,
+    "source": "https://freesound.org/people/mateusboga/sounds/614079/",
+    "license": "CC0",
+    "author": "mateusboga",
+    "title": "Page Turn 1",
+    "excerpt": [
+     0.0,
+     0.52
+    ]
+   },
+   {
+    "file": "cues/page-turn/2.mp3",
+    "seconds": 0.65,
+    "gain": 1.2445,
+    "source": "https://freesound.org/people/mateusboga/sounds/614080/",
+    "license": "CC0",
+    "author": "mateusboga",
+    "title": "Page Turn 2",
+    "excerpt": [
+     0.0,
+     0.65
+    ]
+   },
+   {
+    "file": "cues/page-turn/3.mp3",
+    "seconds": 0.58,
+    "gain": 0.9661,
+    "source": "https://freesound.org/people/mateusboga/sounds/614083/",
+    "license": "CC0",
+    "author": "mateusboga",
+    "title": "Page Turn 3",
+    "excerpt": [
+     0.0,
+     0.58
+    ]
+   }
+  ],
+  "ward-crackle": [
+   {
+    "file": "cues/ward-crackle/1.mp3",
+    "seconds": 6.75,
+    "gain": 1.2445,
+    "source": "https://freesound.org/people/Halleck/sounds/19484/",
+    "license": "CC-BY 4.0",
+    "author": "Halleck",
+    "title": "JacobsLadderShort1",
+    "excerpt": [
+     0.0,
+     6.75
+    ]
+   },
+   {
+    "file": "cues/ward-crackle/2.mp3",
+    "seconds": 10.05,
+    "gain": 0.5689,
+    "source": "https://freesound.org/people/Halleck/sounds/19485/",
+    "license": "CC-BY 4.0",
+    "author": "Halleck",
+    "title": "JacobsLadderShort2",
+    "excerpt": [
+     0.08,
+     10.13
+    ]
+   },
+   {
+    "file": "cues/ward-crackle/3.mp3",
+    "seconds": 1.62,
+    "gain": 1.0,
+    "source": "https://freesound.org/people/Halleck/sounds/19486/",
+    "license": "CC-BY 4.0",
+    "author": "Halleck",
+    "title": "JacobsLadderSingle1",
+    "excerpt": [
+     0.01,
+     1.63
+    ]
+   },
+   {
+    "file": "cues/ward-crackle/4.mp3",
+    "seconds": 1.33,
+    "gain": 1.0233,
+    "source": "https://freesound.org/people/Halleck/sounds/19487/",
+    "license": "CC-BY 4.0",
+    "author": "Halleck",
+    "title": "JacobsLadderSingle2",
+    "excerpt": [
+     0.0,
+     1.33
+    ]
+   }
+  ]
+ }
+}

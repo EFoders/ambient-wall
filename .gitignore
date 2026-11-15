@@ -1,0 +1,25 @@
+# Your configuration and every credential stay private: everything in config/ except the example
+# (config.toml, secrets.toml, google-service-account.json, any key file you drop there).
+config/*
+!config/config.example.toml
+
+# Local state and build output
+backend/data/
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+_site/
+frontend/shots/
+frontend/dist/
+
+# Raw sound downloads (sources for tools/process_sounds.py; their licences are tracked in sources.json,
+# the shipped excerpts and their credits live in frontend/sounds/)
+sound-source/
+
+# Editor / assistant local settings
+.claude/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

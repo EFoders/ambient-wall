@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ambient Wall demo: a calm projected wall display with ten living-painting themes. Demo data, runs in the browser.">
+<meta name="theme-color" content="#000000">
+<title>Ambient Wall demo</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23000'/%3E%3Ccircle cx='8' cy='8' r='4' fill='%23e0a24a'/%3E%3C/svg%3E">
+<!-- The interactive demo (GitHub Pages publishes this file as index.html). It is the real wall (js/, themes/)
+     on mock data, plus a dock of controls. No network: system fonts only; served over http(s) the soundscape
+     uses the recordings in sounds/, opened from disk (file://) it falls back to the procedural voices. -->
+<style>
+  /* Layout: the wall fills the screen; a control dock floats at the bottom edge and tucks away when idle.
+     Single deliberate look: a projector wall is black in every host theme, so no light variant. */
+  :root {
+    --void: #000;            /* the wall */
+    --dock: rgba(8, 11, 14, 0.86);
+    --rule: #26303a;         /* hairlines, idle chip edge */
+    --ink: #c9d3dc;          /* labels */
+    --dim: #6f7f8c;          /* row captions, hints */
+    --lit: #e0a24a;          /* selected chip: the walls' own amber */
+    --lit-ink: #160f05;
+    --font-ui: "Inter", "Segoe UI", "DejaVu Sans", system-ui, sans-serif;
+    --font-mono: ui-monospace, "Cascadia Mono", "DejaVu Sans Mono", Consolas, monospace;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--void); color: var(--ink); overflow: hidden; font-family: var(--font-ui); }
+  canvas#wall { display: block; background: var(--void); touch-action: manipulation; }
+  #hud {
+    position: fixed; left: 12px; top: calc(10px + env(safe-area-inset-top, 0px)); white-space: pre;
+    font: 11px/1.5 var(--font-mono); color: #3c8c96; pointer-events: none; display: none; z-index: 3;
+  }
+  #hint {
+    position: fixed; right: 12px; top: calc(10px + env(safe-area-inset-top, 0px)); white-space: pre;
+    font: 11px/1.4 var(--font-mono); color: #96703a; pointer-events: none; display: none; z-index: 3;
+  }
+
+  /* ---- dock */
+  #dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 4;
+    padding: 10px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    background: var(--dock); border-top: 1px solid var(--rule);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    display: grid; gap: 8px;
+    transition: transform 380ms cubic-bezier(.2,.7,.2,1), opacity 380ms;
+  }
+  #dock.tucked { transform: translateY(calc(100% - 4px)); opacity: 0; pointer-events: none; }
+  .head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .head h1 { margin: 0; font-weight: 600; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .head p { margin: 0; color: var(--dim); font-size: 13px; min-width: 0; }
+  .head .clock { margin-left: auto; font: 500 13px var(--font-mono); font-variant-numeric: tabular-nums; color: var(--ink); }
+  .row { display: grid; grid-template-columns: 74px minmax(0, 1fr); align-items: center; gap: 10px; }
+  .row > span { font: 500 11px var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
+  .chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-block: 2px; min-width: 0; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: none; font: 500 13px var(--font-ui); letter-spacing: 0.02em; color: var(--ink);
+    background: transparent; border: 1px solid var(--rule); border-radius: 999px;
+    padding: 6px 12px; cursor: pointer; white-space: nowrap;
+  }
+  .chip:hover { border-color: var(--dim); }
+  .chip:focus-visible { outline: 2px solid var(--lit); outline-offset: 2px; }
+  .chip[aria-pressed="true"] { background: var(--lit); border-color: var(--lit); color: var(--lit-ink); }
+  .chip.act { border-style: dashed; }
+  #show {
+    position: fixed; right: 16px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 4;
+    font: 500 12px var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink); background: var(--dock); border: 1px solid var(--rule); border-radius: 999px;
+    padding: 7px 12px; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 380ms;
+  }
+  #show.on { opacity: 0.75; pointer-events: auto; }
+  .head a { color: var(--dim); font-size: 13px; text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .head a:hover, .head a:focus-visible { color: var(--ink); border-color: var(--dim); }
+  .rotate { display: none; margin: 0; font: 500 12px var(--font-mono); color: var(--lit); letter-spacing: 0.04em; }
+  @media (max-width: 520px) {
+    .row { grid-template-columns: 1fr; gap: 4px; }
+    .head p { display: none; }
+  }
+  @media (orientation: portrait) and (max-width: 700px) { .rotate { display: block; } }
+  /* a phone held sideways: compact chips, rows in two columns, so the wall stays visible above the dock */
+  @media (max-height: 480px) {
+    #dock { gap: 4px 18px; padding-top: 6px; }
+    .head p { display: none; }
+    .chip { padding: 4px 10px; font-size: 12px; }
+    .row { grid-template-columns: 58px minmax(0, 1fr); gap: 6px; }
+  }
+  @media (max-height: 480px) and (min-width: 700px) {
+    #dock { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .head, .rotate { grid-column: 1 / -1; }
+  }
+  @media (prefers-reduced-motion: reduce) { #dock, #show { transition: none; } }
+</style>
+</head>
+<body>
+<canvas id="wall"></canvas>
+<div id="hud"></div>
+<div id="hint"></div>
+
+<button id="show" type="button" aria-controls="dock">Controls</button>
+<section id="dock" aria-label="Demo controls">
+  <div class="head">
+    <h1>Ambient Wall</h1>
+    <p>A projected wall display. Demo data; tap the wall to hide these controls.</p>
+    <a id="repo" href="#" hidden>Source</a>
+    <span class="clock" id="simclock">--:--</span>
+  </div>
+  <p class="rotate">Turn your phone sideways: the wall is landscape.</p>
+  <div class="row"><span>Theme</span><div class="chips" id="r-theme"></div></div>
+  <div class="row"><span>Cat</span><div class="chips" id="r-cat"></div></div>
+  <div class="row"><span>Mode</span><div class="chips" id="r-mode"></div></div>
+  <div class="row"><span>Time</span><div class="chips" id="r-time"></div></div>
+  <div class="row"><span>Weather</span><div class="chips" id="r-wx"></div></div>
+  <div class="row"><span>Ask</span><div class="chips" id="r-ask"></div></div>
+  <div class="row"><span>Extras</span><div class="chips" id="r-extra"></div></div>
+</section>
+
+<script src="js/config.js"></script>
+<script>AW.config.demo = true;  // static hosting: demo data only, never look for a backend
+AW.config.display.samples = true; // recordings from sounds/ over http(s); file:// stays procedural
+AW.config.display.cat = true;   // the demo shows the cat (the Cat row, or K / Shift+K, changes it)</script>
+<script src="js/util.js"></script>
+<script src="js/core.js"></script>
+<script src="js/overlay.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/cat.js"></script>
+<script src="themes/cyberpunk.js"></script>
+<script src="themes/nature.js"></script>
+<script src="themes/classical.js"></script>
+<script src="themes/boreal.js"></script>
+<script src="themes/campfire.js"></script>
+<script src="themes/academia.js"></script>
+<script src="themes/stainedglass.js"></script>
+<script src="themes/lofi.js"></script>
+<script src="themes/orbit.js"></script>
+<script src="themes/tower.js"></script>
+<script>AW.boot();</script>
+<script>
+(function () {
+  const D = AW._debug;
+  const $ = (id) => document.getElementById(id);
+  const dock = $("dock"), show = $("show");
+
+  function chip(row, label, onClick, isOn) {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.textContent = label;
+    b.addEventListener("click", (e) => { e.stopPropagation(); onClick(); refresh(); poke(); });
+    if (isOn) b._on = isOn; else b.classList.add("act");
+    $(row).appendChild(b);
+    return b;
+  }
+
+  // ---- theme
+  const NAMES = { stainedglass: "Stained glass", tower: "Wizard's tower" };
+  for (const t of D.themes) chip("r-theme", NAMES[t.id] || t.name, () => D.command("set_theme", { theme: t.id }), () => D.theme() === t.id);
+
+  // ---- the cat: none, or one of the coats
+  chip("r-cat", "None", () => D.cat.set(false, undefined, true), () => !D.cat.on);
+  for (const c of D.cat.coats) chip("r-cat", c[0].toUpperCase() + c.slice(1), () => D.cat.set(true, c, true), () => D.cat.on && D.cat.coat === c);
+
+  // ---- mode (auto follows the work schedule: weekdays 07-17 are work)
+  const modes = [["Auto", "auto", null], ["Work", "work", "work"], ["Ambient", "ambient", "ambient"]];
+  for (const [label, arg, ov] of modes) chip("r-mode", label, () => D.command("set_mode", { mode: arg }), () => D.modeState.override === ov);
+
+  // ---- time of day: jump the simulated clock to today's real sun times for the wall's location
+  let timeSel = "live";
+  const today = (h, m) => { const d = new Date(); d.setHours(h, m, 0, 0); return d; };
+  const sun = () => { const loc = AW.config.location; return D.sunTimes(new Date(), loc.lat, loc.lon); };
+  const times = [
+    ["Live", "live", () => new Date()],
+    ["Dawn", "dawn", () => new Date(sun().rise.getTime() + 10 * 60000)],
+    ["Morning", "morning", () => today(9, 15)],
+    ["Noon", "noon", () => today(13, 0)],
+    ["Golden hour", "golden", () => new Date(sun().set.getTime() - 40 * 60000)],
+    ["Dusk", "dusk", () => new Date(sun().set.getTime() + 25 * 60000)],
+    ["Night", "night", () => today(22, 30)],
+  ];
+  for (const [label, key, at] of times) chip("r-time", label, () => { D.warpTo(at().toISOString()); timeSel = key; }, () => timeSel === key);
+
+  // ---- weather presets (the same ones the W key cycles)
+  D.WEATHER.forEach((w, i) => chip("r-wx", w.name[0].toUpperCase() + w.name.slice(1), () => { D.mock.weatherIdx = i; }, () => D.mock.weatherIdx === i));
+
+  // ---- ask panels (the info overlay)
+  const PANEL_LABEL = { forecast: "Forecast", calendar: "Today", pulse: "Projects", finance: "Finances", news: "Headlines", warnings: "Warnings" };
+  for (const p of ["forecast", "calendar", "news", "finance", "pulse", "warnings"]) {
+    chip("r-ask", PANEL_LABEL[p], () => D.overlay.show(p, D.overlay.mock(p), { duration: 15 }));
+  }
+
+  // ---- extras: sound, now playing, news, a host going down
+  chip("r-extra", "Sound", () => D.audio.toggle(), () => !!(AW.audio && AW.audio.state().enabled));
+  chip("r-extra", "Music", () => { D.mock.musicIdx = (D.mock.musicIdx + 1) % D.NOWPLAYING.length; D.mock.musicAt = Date.now(); },
+    () => D.NOWPLAYING[D.mock.musicIdx].name !== "none");
+  chip("r-extra", "Breaking news", () => { const i = D.NEWS.findIndex((n) => n.critical); D.mock.newsIdx = D.mock.newsIdx === i ? 0 : i; },
+    () => !!D.NEWS[D.mock.newsIdx].critical);
+  chip("r-extra", "Host down", () => { D.mock.heartbeatDown = !D.mock.heartbeatDown; }, () => D.mock.heartbeatDown);
+  // projector boost: lifts near-black for a dim projector (true black stays black); the label shows the level
+  const boostChip = chip("r-extra", "Boost: off", () => D.boost.set((D.boost.level + 1) % 4, true), () => D.boost.level > 0);
+  const boostLabel = () => { boostChip.textContent = "Boost: " + D.boost.names[D.boost.level]; };
+  if (document.fullscreenEnabled) {
+    chip("r-extra", "Full screen", () => {
+      const p = document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+      if (p && p.catch) p.catch(() => {});
+    }, () => !!document.fullscreenElement);
+  }
+
+  // ---- "Source" link when published on GitHub Pages (<owner>.github.io/<repo>/)
+  const gh = /^([a-z0-9-]+)\.github\.io$/i.exec(location.hostname);
+  const repo = location.pathname.split("/").filter(Boolean)[0];
+  if (gh && repo && !/\.html?$/i.test(repo)) { $("repo").href = `https://github.com/${gh[1]}/${repo}`; $("repo").hidden = false; }
+
+  function refresh() {
+    for (const b of dock.querySelectorAll(".chip")) if (b._on) b.setAttribute("aria-pressed", b._on() ? "true" : "false");
+    boostLabel();
+  }
+
+  // ---- tuck the dock away when idle; any tap on the wall brings it back (or hides it)
+  let idle = null;
+  const tuck = () => { dock.classList.add("tucked"); show.classList.add("on"); };
+  const untuck = () => { dock.classList.remove("tucked"); show.classList.remove("on"); };
+  function poke() { clearTimeout(idle); idle = setTimeout(tuck, 9000); }
+  $("wall").addEventListener("click", () => { dock.classList.contains("tucked") ? (untuck(), poke()) : tuck(); });
+  show.addEventListener("click", () => { untuck(); poke(); });
+  dock.addEventListener("pointerdown", poke);
+  dock.addEventListener("scroll", poke, true);
+
+  // ---- live readouts: the simulated clock and chip states follow keys too (desktop shortcuts still work)
+  const pad = (n) => String(n).padStart(2, "0");
+  setInterval(() => {
+    const f = window.__AW_FRAME;
+    if (f) $("simclock").textContent = `${f.now.toLocaleDateString("en-CA", { weekday: "short" })} ${pad(f.now.getHours())}:${pad(f.now.getMinutes())}`;
+    refresh();
+  }, 500);
+  refresh(); poke();
+})();
+</script>
+</body>
+</html>

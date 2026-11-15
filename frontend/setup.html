@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#050403">
+<title>Set up Ambient Wall</title>
+<!-- First-run setup wizard (docs/SETUP.md). The wall page opens it while the backend has no config/config.toml.
+     Plain HTML + js/setup.js + setup.css: no build step, no CDN, system fonts (it is served offline on a LAN). -->
+<link rel="stylesheet" href="setup.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">Ambient Wall <span>setup</span></div>
+  <ol class="steps" id="steps" aria-label="Steps" hidden>
+    <li data-step="0"><button type="button">Place</button></li>
+    <li data-step="1"><button type="button">Hours</button></li>
+    <li data-step="2"><button type="button">Look</button></li>
+    <li data-step="3"><button type="button">Data</button></li>
+    <li data-step="4"><button type="button">Review</button></li>
+  </ol>
+</header>
+
+<main id="main">
+  <section class="state" id="state-loading"><p class="muted">Loading…</p></section>
+
+  <!-- ============================================================ the wizard -->
+  <form id="wizard" hidden novalidate autocomplete="off">
+
+    <!-- ---------------------------------------------------------- 1. place -->
+    <section class="step" data-step="0" aria-labelledby="h-place">
+      <h1 id="h-place" tabindex="-1">Where is this wall?</h1>
+      <p class="lead">The place sets the clock, sunrise and sunset, and the weather. Everything after this has
+        sensible defaults, and all of it can be changed later in <code>config/config.toml</code>.</p>
+
+      <div class="field" data-field="location">
+        <label for="q">Town or city</label>
+        <div class="row">
+          <input id="q" type="search" maxlength="60" placeholder="e.g. Ottawa, or Pembroke, Ontario" enterkeyhint="search">
+          <button type="button" id="search">Search</button>
+        </div>
+        <p class="msg" id="search-msg" aria-live="polite"></p>
+        <ul class="results" id="results"></ul>
+      </div>
+
+      <div class="card picked" id="picked" hidden>
+        <div class="picked-name" id="picked-name"></div>
+        <div class="muted" id="picked-detail"></div>
+      </div>
+
+      <details id="manual">
+        <summary>Enter or adjust it by hand</summary>
+        <div class="grid2">
+          <div class="field" data-field="location.name">
+            <label for="loc-name">Name</label>
+            <input id="loc-name" maxlength="80" placeholder="Ottawa">
+          </div>
+          <div class="field" data-field="location.timezone">
+            <label for="loc-tz">Time zone</label>
+            <input id="loc-tz" list="tz-list" maxlength="64" placeholder="America/Toronto" spellcheck="false">
+            <datalist id="tz-list"></datalist>
+          </div>
+          <div class="field" data-field="location.lat">
+            <label for="loc-lat">Latitude</label>
+            <input id="loc-lat" inputmode="decimal" placeholder="45.42">
+          </div>
+          <div class="field" data-field="location.lon">
+            <label for="loc-lon">Longitude</label>
+            <input id="loc-lon" inputmode="decimal" placeholder="-75.69">
+          </div>
+        </div>
+        <p class="hint">South latitudes and west longitudes are negative.</p>
+        <button type="button" class="ghost small" id="ec-find" hidden>Look for an Environment Canada station nearby</button>
+      </details>
+
+      <div class="card optional" id="ec-card" hidden data-field="envcanada">
+        <label class="check"><input type="checkbox" id="ec-on" checked>
+          <span><b>Environment Canada</b> <span class="muted" id="ec-name"></span></span></label>
+        <p class="what">Official weather warnings, and rain the nearest station actually reports (the forecast
+          model can miss rain that is falling).</p>
+        <div class="radios" id="ec-sites"></div>
+      </div>
+
+      <p class="skip"><a href="./" id="skip">Skip — keep the demo for now</a>
+        <span class="muted">(this page stays at <span class="here"></span>)</span></p>
+    </section>
+
+    <!-- ---------------------------------------------------------- 2. hours -->
+    <section class="step" data-step="1" aria-labelledby="h-hours" hidden>
+      <h1 id="h-hours" tabindex="-1">Work hours</h1>
+      <p class="lead">During work hours the wall shows a calm work face: the time, your next meeting, a weather line.
+        The rest of the time it drifts into a slow ambient scene.</p>
+      <div class="grid2">
+        <div class="field" data-field="schedule.work_start">
+          <label for="work-start">Starts</label>
+          <input id="work-start" type="time" value="07:00" step="300">
+        </div>
+        <div class="field" data-field="schedule.work_end">
+          <label for="work-end">Ends</label>
+          <input id="work-end" type="time" value="17:00" step="300">
+        </div>
+      </div>
+      <fieldset class="field" data-field="schedule.work_days">
+        <legend>Work days</legend>
+        <div class="days" id="days">
+          <label><input type="checkbox" value="1" checked><span>Mon</span></label>
+          <label><input type="checkbox" value="2" checked><span>Tue</span></label>
+          <label><input type="checkbox" value="3" checked><span>Wed</span></label>
+          <label><input type="checkbox" value="4" checked><span>Thu</span></label>
+          <label><input type="checkbox" value="5" checked><span>Fri</span></label>
+          <label><input type="checkbox" value="6"><span>Sat</span></label>
+          <label><input type="checkbox" value="0"><span>Sun</span></label>
+        </div>
+      </fieldset>
+      <label class="switch" data-field="schedule.hour24"><input type="checkbox" id="hour24" checked>
+        <span>24-hour clock <span class="muted">(off: 1:30 pm)</span></span></label>
+    </section>
+
+    <!-- ---------------------------------------------------------- 3. look -->
+    <section class="step" data-step="2" aria-labelledby="h-look" hidden>
+      <h1 id="h-look" tabindex="-1">Look</h1>
+      <p class="lead">Pick a scene. The previews are live, with made-up data. Number keys on the wall switch themes
+        any time.</p>
+      <div class="themes" id="themes" role="radiogroup" aria-label="Theme" data-field="look.theme"></div>
+
+      <div class="options">
+        <div class="opt">
+          <label class="switch"><input type="checkbox" id="cat"><span>A cat in every scene</span></label>
+          <select id="cat-coat" aria-label="Coat" data-field="look.cat_coat"></select>
+        </div>
+        <div class="opt">
+          <label class="switch"><input type="checkbox" id="sound"><span>Ambient sound
+            <span class="muted">(rain, wind, fire; a browser may want one click on the wall first)</span></span></label>
+        </div>
+        <div class="opt field" data-field="look.boost">
+          <label for="boost">Projector boost</label>
+          <select id="boost">
+            <option value="0">Off</option><option value="1">Low</option>
+            <option value="2">Medium</option><option value="3">High</option>
+          </select>
+          <p class="hint">For a dim projector: lifts the darkest tones, true black stays black. G on the wall cycles it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------- 4. data -->
+    <section class="step" data-step="3" aria-labelledby="h-data" hidden>
+      <h1 id="h-data" tabindex="-1">Your data <span class="muted">(all optional)</span></h1>
+      <p class="lead">Weather is always on. Anything you leave out simply isn't drawn.</p>
+
+      <div class="card src" id="src-news" data-field="news">
+        <h2>News headlines</h2>
+        <p class="what">One headline at a time on the work face; urgent ones (warnings, evacuations) stand out.</p>
+        <div class="presets" id="news-presets"></div>
+        <div id="news-custom"></div>
+        <button type="button" class="ghost small" id="add-feed">+ Another feed (RSS or Atom address)</button>
+      </div>
+
+      <div class="card src" id="src-cal">
+        <h2>Calendar</h2>
+        <p class="what">Your next meeting with a countdown, and "leave early" when rain is due before it.</p>
+        <div class="field" data-field="calendar.url">
+          <label for="cal-url">Secret address in iCal format</label>
+          <input id="cal-url" type="url" spellcheck="false" maxlength="2000"
+                 placeholder="https://calendar.google.com/calendar/ical/…/private-…/basic.ics">
+          <p class="msg warn" id="cal-warn"></p>
+        </div>
+        <p class="hint">Google Calendar: Settings → your calendar → Integrate calendar → <b>Secret address in iCal
+          format</b>. Use the <b>secret</b> address, not the public one. It is saved in <code>config/secrets.toml</code>,
+          never in config.toml, and only its host ever shows up in logs.</p>
+      </div>
+
+      <div class="card src" id="src-hosts" data-field="hosts">
+        <h2>Computers to watch</h2>
+        <p class="what">A quiet mark per machine; one that stops answering pings for two minutes stands out.</p>
+        <div id="hosts"></div>
+        <button type="button" class="ghost small" id="add-host">+ Add a computer</button>
+      </div>
+
+      <div class="card src" id="src-spotify">
+        <h2>Spotify now playing</h2>
+        <p class="what">The track that is playing, with its progress and album art.</p>
+        <details id="spotify-box">
+          <summary>Connect Spotify</summary>
+          <p class="hint">One time, on a PC with a browser (about five minutes): create an app at
+            developer.spotify.com/dashboard with the redirect URI <code>http://127.0.0.1:8888/callback</code>, then
+            from the repo run <code>python scripts/spotify_auth.py --client-id &lt;your client id&gt;</code>. It prints
+            three values: paste them here. Step by step: <code>docs/SOURCES.md</code>, "Spotify". They are saved in
+            <code>config/secrets.toml</code>.</p>
+          <div class="field" data-field="spotify.client_id">
+            <label for="sp-id">Client ID</label>
+            <input id="sp-id" spellcheck="false" maxlength="2000">
+          </div>
+          <div class="field" data-field="spotify.client_secret">
+            <label for="sp-secret">Client secret</label>
+            <input id="sp-secret" type="password" spellcheck="false" maxlength="2000">
+          </div>
+          <div class="field" data-field="spotify.refresh_token">
+            <label for="sp-token">Refresh token</label>
+            <input id="sp-token" type="password" spellcheck="false" maxlength="2000">
+          </div>
+        </details>
+      </div>
+
+      <div class="card note">
+        <h2>More, later</h2>
+        <p>Finances (a Google Sheet), GitHub project pulse, Last.fm, pushes from phones and scripts, and your own
+          sources are set up in <code>config/config.toml</code>: the file this wizard writes has commented examples,
+          and <code>docs/SOURCES.md</code> explains each one.</p>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------- 5. review -->
+    <section class="step" data-step="4" aria-labelledby="h-review" hidden>
+      <h1 id="h-review" tabindex="-1">Review</h1>
+      <div class="errors" id="errors" role="alert" hidden></div>
+      <dl class="summary" id="summary"></dl>
+      <details id="toml-box">
+        <summary>The config.toml this writes</summary>
+        <pre id="toml" class="code"></pre>
+      </details>
+      <p class="hint">Saving writes <code>config/config.toml</code> (and <code>config/secrets.toml</code> for the calendar
+        address and Spotify keys) on the wall box and starts the wall with it. No restart needed.</p>
+    </section>
+  </form>
+
+  <!-- ============================================================ outcomes -->
+  <section class="state" id="state-saved" hidden>
+    <h1 tabindex="-1">Done</h1>
+    <p class="lead">Your wall is running on its new configuration.</p>
+    <p class="msg warn" id="saved-note"></p>
+    <p class="muted" id="saved-sources"></p>
+    <p><a class="button primary" href="./" id="open-wall">Open the wall</a></p>
+    <p class="hint">To change anything later, edit <code>config/config.toml</code> (and <code>secrets.toml</code>) on the
+      wall box, then restart the wall: <code>docker compose restart wall</code>.</p>
+  </section>
+
+  <section class="state" id="state-already" hidden>
+    <h1 tabindex="-1">Already set up</h1>
+    <p class="lead">This wall has its configuration. To change it, edit <code>config/config.toml</code> (and
+      <code>config/secrets.toml</code>) on the wall box, then restart the wall.</p>
+    <p class="msg" id="already-note"></p>
+    <p><a class="button primary" href="./">Open the wall</a></p>
+  </section>
+
+  <section class="state" id="state-write-error" hidden>
+    <h1 tabindex="-1">Couldn't save on the wall box</h1>
+    <p class="msg err" id="we-msg"></p>
+    <p id="we-hint"></p>
+    <h2>config.toml</h2>
+    <textarea id="we-config" class="code" readonly rows="10" spellcheck="false"></textarea>
+    <div class="row wrap">
+      <button type="button" data-copy="we-config">Copy</button>
+      <button type="button" data-download="we-config" data-name="config.toml">Download config.toml</button>
+    </div>
+    <div id="we-secrets-box" hidden>
+      <h2>secrets.toml</h2>
+      <p class="hint">Holds your calendar address and Spotify keys: keep it private.</p>
+      <textarea id="we-secrets" class="code" readonly rows="5" spellcheck="false"></textarea>
+      <div class="row wrap">
+        <button type="button" data-copy="we-secrets">Copy</button>
+        <button type="button" data-download="we-secrets" data-name="secrets.toml">Download secrets.toml</button>
+      </div>
+    </div>
+    <p class="row wrap"><button type="button" class="primary" id="we-retry">Try again</button>
+      <button type="button" class="ghost" id="we-back">Back to the answers</button></p>
+  </section>
+
+  <section class="state" id="state-offline" hidden>
+    <h1 tabindex="-1">No wall here</h1>
+    <p class="lead">The setup wizard runs on the wall box itself: open <code>http://&lt;box&gt;:8700/setup.html</code>
+      in a browser on the same network.</p>
+    <p class="msg err" id="offline-note"></p>
+  </section>
+</main>
+
+<nav class="nav" id="nav" hidden>
+  <div class="nav-in">
+    <button type="button" class="ghost" id="back">Back</button>
+    <button type="button" class="primary" id="next">Next</button>
+  </div>
+</nav>
+
+<script src="js/setup.js"></script>
+</body>
+</html>
