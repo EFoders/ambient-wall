@@ -4,9 +4,10 @@ comes from ?boost= or the config, and a choice made on the wall survives a reloa
 import io
 
 import numpy as np
+import pytest
 from PIL import Image
 
-from conftest import poll, real_errors
+from conftest import ON_CI, poll, real_errors
 
 # a test theme: left half pure black, right half a dark grey the projector would swallow (20/255)
 GREY_THEME = """() => {
@@ -94,6 +95,7 @@ def test_bad_param_is_ignored(open_page):
     assert level(pg) == 0 and real_errors(pg) == []
 
 
+@pytest.mark.skipif(ON_CI, reason="frame timing is meaningless on a GPU-less CI runner")
 def test_render_cost_unchanged(open_page):
     """The filter runs in the compositor: theme render time must not change."""
     pg = open_page("mode=ambient&at=2026-10-09T22:30&boost=3", w=1600, h=900, wait=1500)

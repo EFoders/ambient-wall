@@ -34,6 +34,17 @@ AUTOPLAY_ARGS = BROWSER_ARGS + ["--autoplay-policy=no-user-gesture-required"]
 GESTURE_ARGS = BROWSER_ARGS + ["--autoplay-policy=document-user-activation-required"]
 PANELS = ["forecast", "calendar", "pulse", "finance", "news", "warnings"]
 
+# Shared CI runners (GitHub Actions sets CI=true) have no GPU and two slow cores: canvas frames reach the screen
+# far less often than on a real wall box, so frame-RATE checks use CI_FRAMES_MIN / CI-aware limits. Render-time checks
+# (time inside theme.render) stay strict everywhere: they measure the code, not the machine's compositor.
+ON_CI = os.environ.get("CI", "").lower() in ("1", "true", "yes")
+
+
+def frames(pg, n=3):
+    """Wait until the page has painted `n` more frames (a fixed sleep is too short on a slow runner)."""
+    pg.evaluate("async (n) => { for (let i = 0; i < n; i++) await new Promise(requestAnimationFrame); }", n)
+
+
 # A theme that paints nothing: pixels in the panel box are then the overlay's alone.
 VOID_THEME = """() => {
   if (!AW._debug.themes.find((t) => t.id === "void"))

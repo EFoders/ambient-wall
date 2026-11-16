@@ -2,12 +2,15 @@ name: Demo (GitHub Pages)
 
 # Publishes the static demo: frontend/ on mock data, with demo.html as the entry page. Enable it once under
 # Settings -> Pages -> Source: "GitHub Actions". The demo is then at https://<owner>.github.io/<repo>/.
+#
+# Manual only for now: GitHub Pages needs a public repo (or a paid plan), so on a private repo every push
+# would fail here. Once the repo is public and Pages is enabled, restore the push trigger:
+#   push:
+#     branches: [main]
+#     paths:
+#       - frontend/**
+#       - .github/workflows/pages.yml
 on:
-  push:
-    branches: [main]
-    paths:
-      - frontend/**
-      - .github/workflows/pages.yml
   workflow_dispatch:
 
 permissions:
