@@ -11,7 +11,7 @@ Then the work backdrop (THEMES.md "Daytime"), per theme, with AW._debug.forceDay
   - by day the HUD stays legible: the text keeps its contrast against the background around it.
 
 One page per theme is reused across its states (switching state in place is much faster than reloading).
-Themes are being edited concurrently by other agents: a failure here is a finding to report, not to paper over.
+A failure here is a finding to fix in the theme, not a threshold to relax.
 """
 import numpy as np
 import pytest

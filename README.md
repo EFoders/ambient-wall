@@ -6,7 +6,7 @@ A calm display for the wall of a home office, made for a projector. During work 
 
 <sub>One theme, two faces: work (left) and ambient (right). Ten themes, real weather and daylight, an optional cat.</sub>
 
-**Try it now:** the [online demo](https://OWNER.github.io/ambient-wall/) runs in the browser on demo data.
+**Try it now:** the [online demo](https://efoders.github.io/ambient-wall/) runs in the browser on demo data.
 
 ## Quick start
 
@@ -27,7 +27,7 @@ Prefer files? Copy [`config/config.example.toml`](config/config.example.toml) to
 ```yaml
 services:
   wall:
-    image: ghcr.io/OWNER/ambient-wall:latest
+    image: ghcr.io/efoders/ambient-wall:latest
 ```
 
 ## Keys
